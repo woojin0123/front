@@ -3,8 +3,82 @@
 
 /* header */
 #header {
-
+    position: relative;
+}
+#header .inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    /* background: #555; */
+}
+#logo {
+    position: absolute;
 }
 #header .top_link {
-    display: grid;
+    padding-top: 24px;
+}
+#header .top_link a {
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+
+/* nav */
+#gnb {
+    background: lightblue;
+    position: relative;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+}
+#header .main {
+    width: 700px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    background: lightcoral;
+}
+#header .main>li>a {
+            display: inline-block;
+}
+#header .main>li>a::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 3px;
+        background: #bbb;
+        margin: auto;
+        transition: .5s;
+}
+ #header .main>li>a:hover::after {
+            width: 100%;
+            /* transform: scaleX(1); */
+        }
+        #header .main a:hover {
+            color: #bbb;
+        }
+/* 메인 메뉴에 :hover시 서브 메뉴 나타내기 */
+        #header .main:hover .sub {
+            /* display: block; */
+            /* visibility: visible; */
+            /* background: #fff; */
+            opacity: 1;
+        }
+/* 2depth: Sub Menu */
+        #header .sub {
+            /* display: none; */
+            font-size: 1.6rem;
+            line-height: 2;
+            font-weight: 400;
+            margin-top: 45px;
+        }
+#header .menu_icon {
+
+}
+#header i {
+    background: #999;
+    padding: 12px 20px;
+    border-radius: 50px;
+    
 }

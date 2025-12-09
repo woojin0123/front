@@ -30,13 +30,13 @@
 }
 
 body,
-h1,
-ul {
+h1, h2, h3,
+ul, li, i {
     margin: 0;
     padding: 0;
 }
 
-ul {
+ul, li {
     list-style: none;
 }
 

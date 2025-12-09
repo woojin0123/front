@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import url(reset.css);
+
+
+/* footer */
+#footer {
+    background: #444;
+    position: relative;
+    padding: 32px 0;
+
+    color: #fff;
+}
+#footer a {
+    color: #fff;
+}
+#footer li {
+    font-size: 0.75rem;
+}
+#footer .inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* padding: 16px; */
+    /* background: #555; */
+}
+#footer .footer_bottom {
+    margin-top: 70px;
+    
+}
+#footer .info {
+    font-size: 0.875rem;
+}
+
+#footer .call_box, .bank_box {
+    background: #000;
+    border-radius: 25px;
+    width: 400px;
+    height: 120px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+#footer .bank_box {
+    border-radius: 20px;
+    height: 70px;
+}
+#footer .call_center, .bank_info {
+    display: flex;
+    justify-content: space-between;
+}
+#footer ul {
+    text-align: right;
+}
+#footer img {
+    width: 220px;
+}
