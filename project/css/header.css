@@ -57,6 +57,7 @@
             width: 600px;
             display: flex;
             text-align: center;
+            align-items: center;
             font-size: 1.8rem;
             font-weight: 700;
             /* background: blue; */

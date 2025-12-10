@@ -99,6 +99,9 @@ address {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+#logo a {
+    
+}
 
 /* top menu */
 #header .top_link {
