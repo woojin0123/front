@@ -13,6 +13,6 @@ function runCounter($counter) {
             // 바 증가
             $counter.parent(".progress-bar").css("width", count + "%");
             // 숫자(퍼센트) 증가
-            $counter.text(count);
+            $counter.text(count + "%");
         }, speed);
     } // function runCounter($counter) end

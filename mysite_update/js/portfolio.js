@@ -1,4 +1,4 @@
-datas.forEach((data)=>{
+$(datas).each((idx, data) => {
             
                             // data.map(([요소], [인덱스], [배열])=>{});
             const desc = data.description.map(ele=> `<li>${ele}</li>`

@@ -21,12 +21,12 @@ const datas = [
     },
     {
         rank: 3,
-        poster: "https://dummyimage.com/400X600/000/ff0000&text=preparing...",
-        title: "정보원",
+        poster: "assets/imgs/megabox_main.jpg",
+        title: "메가박스",
         task: "Pe",
-        description: ["준비 중..."],
-        worktime: 8.5,
-        siteurl: "#"
+        description: ["어쩌구저쩌구"],
+        worktime: 16,
+        siteurl: "https://helloreact222.netlify.app/"
     },
     {
         rank: 4,
