@@ -1,0 +1,72 @@
+@import url(reset.css);
+@charset "utf-8";
+/* 폰트어썸 라이브러리 */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+/* 초기화(reset) */
+* {
+    box-sizing: border-box;
+}
+
+body, div,
+h1, h2, h3, p, span,
+ul, li, i, img {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+body {
+    font: 0.9375rem/1.6 "NanumBarunGothic", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    vertical-align: middle;
+    object-fit: cover;
+}
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    font-family: "Pretendard";
+}
+
+/* about */
+section #about .inner {
+    /* background: #000; */
+    max-width: 1320px;
+    margin: 0 auto;
+    justify-content: center;
+    color: #F04E37;
+    margin-top: 50px;
+    font-size: 1.3rem;
+}
+section #about .inner h1:not(:nth-of-type(2)) {
+    margin: 40px 0;
+}
+section #about .inner span {
+    text-emphasis-style: circle;
+}
+section #about .inner p {
+    margin: 20px 0;
+    color: #797878;
+    font-size: 1rem;
+}
+section #about .inner img {
+    width: 1200px;
+} 
+
+
