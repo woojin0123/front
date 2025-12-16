@@ -1,0 +1,57 @@
+팀장
+1. 깃허브 웹사이트 로그인
+2. 새 레포지토리 생성
+3. setting > Access > Collaborators > Add people
+4. ID(not email) 찾아서 초대
+5. 통합 터미널 열기 ctrl+`
+    git clone 팀깃허브url
+    cd 팀폴더명 (팀 폴더로 들어가기)
+    git checkout -b 사용하고 싶은 브랜치명
+예시---------------------------------------------------
+    git clone https://github.com/minho60/team.git
+    cd team
+    git checkout -b cwj
+6. 임의의 파일 생성하기
+7. 업로드&푸시하기
+    git add .
+    git commit -m "커밋명"
+    git push origin 브랜치명
+예시---------------------------------------------------
+    git add .
+    git commit -m "cwj251216"
+    git push origin cwj
+8. main 브랜치로 병합하기(Pull Request, PR)
+* 화면에 Compare & pull request 클릭
+    - 제대로 된 파일 업로드 됐는지 확인 요청
+
+    PR 생성하기 (순서 중요!)
+    base: main (옛날 거)
+    compare: 개인브랜치 (최근 거)
+
+팀원
+1. 깃허브 웹사이트 로그인
+2. 초대 수락(email)
+3. 통합 터미널 열기 ctrl+`
+    git clone 팀깃허브url
+    cd 팀폴더명 (팀 폴더로 들어가기)
+    git checkout -b 사용하고 싶은 브랜치명
+예시---------------------------------------------------
+    git clone https://github.com/minho60/team.git
+    cd team
+    git checkout -b cwj
+4. 임의의 파일 생성
+5. 업로드&푸시하기
+    git add .
+    git commit -m "커밋명"
+    git push origin 브랜치명
+예시---------------------------------------------------
+    업로드&푸시하기
+    git add .
+    git commit -m "cwj251216"
+    git push origin cwj
+
+
+
+branch
+- main: 최종 프로젝트 병합(merge)
+- 개별 브랜치: 각자 작업
