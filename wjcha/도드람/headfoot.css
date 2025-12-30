@@ -1,37 +1,33 @@
-@charset "utf-8";
-/* 폰트어썸 라이브러리 */
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
-
 /* 초기화(reset) */
-* {
+.woojin * {
     box-sizing: border-box;
 }
 
-body, div,
-h1, h2, h3, p, span,
-ul, li, i, img {
+.woojin,
+.woojin h1, .woojin h2, .woojin h3, .woojin p, .woojin span,
+.woojin ul, .woojin li, .woojin i, .woojin img {
     margin: 0;
     padding: 0;
 }
 
-ul, li {
+.woojin ul, .woojin li {
     list-style: none;
 }
 
-body {
+.woojin {
     font: 0.9375rem/1.6 "NanumBarunGothic", sans-serif;
 }
 
-a {
+.woojin a {
     text-decoration: none;
     color: black;
 }
 
-img {
+.woojin img {
     vertical-align: middle;
     object-fit: cover;
 }
-input {
+.woojin input {
     background: transparent;
     border: none;
     outline: none;
@@ -42,17 +38,17 @@ input {
 /* header */
 #header {
     position: relative;
+    margin-bottom: 20px;
 }
 #header .inner {
-    max-width: 1320px;
+    max-width: 1520px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
     margin-bottom: 20px;
-    /* background: #555; */
 }
-#logo {
+logo {
     position: absolute;
 }
 #header .top_link {
@@ -67,9 +63,8 @@ input {
 /* 메인 메뉴바 */
 #gnb {
     display: flex;
-    /* background: lightblue; */
     position: relative;
-    max-width: 1320px;
+    max-width: 1520px;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
@@ -139,7 +134,7 @@ input {
     margin: auto;
     transition: .5s;
 }
-#gnb .main li:not(:last-of-type)::after {
+#gnb .main > li:not(:last-of-type)::after {
     position: absolute;
     content: "";
     width: 3px;
@@ -161,21 +156,19 @@ input {
 #gnb .main li {
     position: relative;
 }
-#gnb .main li:hover>.sub {
+#gnb .main li:hover>.sub-wrapper {
     display: block;
 }
-/* #gnb .main li:nth-of-type(1) a, 
-#gnb .main li:nth-of-type(2) a, 
-#gnb .main li:nth-of-type(3) a {
-    color: #E83828;
-} */
 
 /* 서브메뉴 */
-#gnb .sub {
+#gnb .sub-wrapper {
     display: none;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1000;
+}
+#gnb .sub {
     font-size: 0.875rem;
     line-height: 1.8;
     font-weight: 300;
@@ -216,6 +209,47 @@ input {
     color: #787878;
     font-weight: 500;
 }
+#gnb .logo2 {
+    display: none;
+    width: 120px;
+}
+#gnb .logo2 img {
+    width: 100%;
+}
+#gnb.active .logo2 {
+    display: block;
+}
+#gnb.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    background: #fff;
+    z-index: 10000;
+    padding: 10px 10%;
+    justify-content: center;
+    gap: 30px;
+    animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+#gnb.active .main {
+    height: 70px;
+    width: auto;
+    min-width: 500px;
+    box-shadow: none;
+}
+
+#gnb.active .menu_left {
+    display: none;
+}
+#gnb.active .search {
+    display: none;
+}
+
 
 /* footer */
 #footer {
@@ -223,6 +257,8 @@ input {
     position: relative;
     padding: 32px 0;
     color: #787878;
+    margin-top: 20px;
+    text-align: left;
 }
 #footer a {
     color: #787878;
@@ -231,7 +267,7 @@ input {
     font-size: 0.75rem;
 }
 #footer .inner {
-    max-width: 1320px;
+    max-width: 1520px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -252,31 +288,44 @@ input {
     padding-left: 16px;
 }
 #footer .info {
-    font-size: 0.875rem;
+    margin-top: 8px;
+    font-size: 0.8rem;
 }
 #footer .call_box, .bank_box {
     background: #E83828;
     border-radius: 25px;
-    width: 400px;
+    width: 450px;
     padding: 10px 20px;
-    margin: 10px 0;
     color: #fff;
 }
 #footer .bank_time {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 80px;
+    gap: 0 94px;
+    margin: 0 16px;
 }
-
 #footer .call_box {
-    height: 105px;
+    height: 130px;
 }
 #footer .call_box li {
     text-align: left;
 }
+#footer .call_center {
+    margin-top: 18px;
+}
+#footer .call_center h2 {
+    margin: 0 16px;
+}
 #footer .bank_box {
+    margin: 15px 0 5px 0;
+    height: 90px;
     border-radius: 20px;
-    height: 70px;
+}
+#footer .bank_info h3 {
+    margin: 10px 16px 0 16px;
+}
+#footer .bank_name {
+    margin-right: 16px;
 }
 #footer .call_center, .bank_info {
     display: flex;

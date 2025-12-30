@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신선한 식탁을 즐기다, 도드람몰</title>
     <!-- https://www.dodrammall.com/ -->
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="headfoot.css">
 </head>
 
 <body>
@@ -30,6 +30,8 @@
 
         <!-- GNB -->
         <nav id="gnb">
+            <div class="logo2"><a href="/index.html"><img src="/assets/img/layout/0c3d6c35bd0388d73a8ca987211f0061_31100.svg"
+                                alt="도드람로고"></a></div>
             <ul class="main">
                 <li><a href="">핫세일</a></li>
                 <li><a href="">신제품</a></li>
@@ -73,6 +75,22 @@
                 <input class="search" name="message" id="" placeholder="찾으시는 제품이 있으신가요?" required>
         </nav>
     </div> <!-- //header -->
+    <script>
+        window.addEventListener("scroll", function () {
+  const gnb = document.querySelector("#gnb");
+  const headerInner = document.querySelector("#header .inner");
+
+  // 로고 영역의 높이(padding 포함)를 계산하여 기준점 설정
+  const stickyLimit = headerInner.offsetTop + headerInner.offsetHeight;
+
+  if (window.scrollY > stickyLimit) {
+    gnb.classList.add("active");
+  } else {
+    gnb.classList.remove("active");
+  }
+});
+
+    </script>
 </body>
 
 </html>
