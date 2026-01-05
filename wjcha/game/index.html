@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close to 10!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            background: #EAE0CF;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .game {
+            display: flex;
+            max-width: 1520px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .record-container {
+            display: none;
+            margin-top: 100px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        li {
+            word-wrap: break-word;
+        }
+
+        .time {
+            width: 100%;
+            margin-top: 250px;
+            text-align: center;
+            font-size: 6rem;
+            color: #111;
+        }
+
+        .btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .start,
+        .stop,
+        .reset {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            font-size: 3rem;
+            color: #fff;
+            border-radius: 150px;
+            transition: transform 0.1s;
+        }
+
+        .start {
+            background: #2f4858;
+        }
+
+        .stop {
+            display: none;
+            background: #46676d;
+        }
+
+        .reset {
+            display: none;
+            background: #678681;
+        }
+
+        .start:hover {
+            background: #206960;
+        }
+
+        .stop:hover {
+            background: #51806c;
+        }
+
+        .reset:hover {
+            background: #7b977d;
+        }
+
+        .start:hover,
+        .stop:hover,
+        .reset:hover {
+            cursor: pointer;
+        }
+
+        .perfect-score {
+            color: #f1c40f;
+            font-weight: bold;
+            background: rgba(241, 196, 15, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <div class="inner">
+            <div class="record-container">
+                <div class="record-title">Records</div>
+                <ul class="record-list">
+                    <li>asdads</li>
+                    <li>asdads</li>
+                </ul>
+            </div>
+            <p class="time">00.00.00</p>
+            <div class="btn-container">
+                <div class="btn start">start</div>
+                <div class="btn stop">stop</div>
+                <div class="btn reset">reset</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        let timerId;
+        let timeStart = 0;
+
+        const timeDisplay = document.querySelector('.time');
+        const startBtn = document.querySelector('.start');
+        const stopBtn = document.querySelector('.stop');
+        const resetBtn = document.querySelector('.reset');
+
+        // 폭죽 함수를 바깥으로 빼서 어디서든 부를 수 있게 함
+        function triggerConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function updateDisplay() {
+            let seconds = Math.floor(timeStart / 100);
+            let centiseconds = timeStart % 100;
+            // 시각적 재미를 위한 0~9 랜덤값
+            let m = Math.floor(Math.random() * 10); 
+
+            let s = String(seconds).padStart(2, '0');
+            let c = String(centiseconds).padStart(2, '0');
+
+            timeDisplay.textContent = `${s}.${c}.${m}${m}`;
+        }
+
+        startBtn.addEventListener('click', () => {
+            startBtn.style.display = 'none';
+            stopBtn.style.display = 'flex';
+            resetBtn.style.display = 'none';
+
+            if (!timerId) {
+                timerId = setInterval(() => {
+                    timeStart++;
+                    updateDisplay();
+                }, 10);
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            stopBtn.style.display = 'none';
+            resetBtn.style.display = 'flex';
+
+            clearInterval(timerId);
+            timerId = null;
+
+            // 판정 범위: 9.95초(995) ~ 10.05초(1005)
+            if (timeStart >= 995 && timeStart <= 1005) {
+                triggerConfetti();
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            timeStart = 0;
+            timeDisplay.textContent = "00.00.00";
+
+            startBtn.style.display = 'flex';
+            stopBtn.style.display = 'none';
+            resetBtn.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
