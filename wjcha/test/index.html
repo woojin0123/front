@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 MBTI 테스트</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #situation-text {
+            font-size: 1.2rem;
+        }
+
+        #answer-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            max-width: 400px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #a5acad;
+            transition: 0.2s;
+            background: #ffffff;
+            font-size: 0.7rem;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="question-container">
+        <h2 id="situation-text"></h2>
+        <div id="answer-buttons">
+        </div>
+    </div>
+
+    <div id="result-area" class="hidden">
+        <h1>테스트 결과</h1>
+        <h2 id="result-title"></h2>
+        <button onclick="location.reload()">다시 하기</button>
+    </div>
+    <script>
+        const questions = [
+            {
+                situation: "친구와 길을 가다 모르는 사람이 말을 걸어왔다!",
+                answers: [
+                    { text: "친절하게 대답해준다", type: "E" },
+                    { text: "못들은 척 하고 지나간다", type: "I" }
+                ]
+            },
+            {
+                situation: "갑자기 주말 약속이 취소되었다면?",
+                answers: [
+                    { text: "너무 좋다", type: "I" },
+                    { text: "다른 친구에게 바로 연락한다", type: "E" }
+                ]
+            },
+            {
+                situation: "수업 중, 별로 안 친한 사람 등에 \n매미가 붙어있다.",
+                answers: [
+                    { text: "조용히 알려준다", type: "I" },
+                    { text: "옆 사람한테 도움을 요청한다", type: "E" }
+                ]
+            },
+            {
+                situation: "옆 사람 목소리가 너무 커서 \n 이어폰을 꼈는데도 시끄럽다",
+                answers: [
+                    { text: "조용히 해달라고 하다가 같이 떠든다", type: "E" },
+                    { text: "노래 소리를 더 키운다", type: "I" }
+                ]
+            },
+            {
+                situation: "샤워 중 윗집에서 쿵하는 소리가 난다.",
+                answers: [
+                    { text: "물건이 떨어졌나? 사람이 쓰러진 거면 어떡하지? 아니겠지 근데 진짜 사람이 쓰러진 거면 어떡하지?", type: "N" },
+                    { text: "쿵 소리가 났구나", type: "S" }
+                ]
+            },
+            {
+                situation: "강아지가 갑자기 한 공간을 보고 짖는다.",
+                answers: [
+                    { text: "갑자기 왜 이러지 뭐가 있나", type: "S" },
+                    { text: "아무 것도 없는데 짖으면 귀신 있다는 건데 귀신이 있나? 그럼 어떡하지? 이랬는데 막 내가 진짜 귀신 볼 수 있는 거면 웃기겠다 갑자기 손더게스트 생각난다", type: "N" }
+                ]
+            },
+            {
+                situation: "수업 중 멍을 때린다. 그때 무슨 생각을 할까?",
+                answers: [
+                    { text: "졸리고 배고프고 집가고 싶다", type: "S" },
+                    { text: "졸리고 배고프고 집가고 싶다 오늘 저녁 뭐먹지? 오랜만에 요리할까? 무슨 요리하지? 닭볶음탕 먹을까? 집 앞 슈퍼로 갈까 대형 마트로 갈까 세일 안하나?", type: "N" }
+                ]
+            },
+            {
+                situation: "재난 영화를 보고 있다.",
+                answers: [
+                    { text: "실제로 일어날 수도 있으니까 일단 생존 가방을 싸고 핸드폰 안될 수도 있으니까 무전기 사두고 빨리 안전한 곳 가서 숨어야지 근데 가다가 도움이 필요한 상황이 생기면 도와주고 근데 유투버가 나 찍고 있어서 막 내 미담 퍼지는 거 아니야? 용감한 시민상 받으면 수상 소감 뭐하지?", type: "N" },
+                    { text: "진짜같다", type: "S" }
+                ]
+            },
+            {
+                situation: "내일이 친구들과 함께하는 마지막 수업이다.",
+                answers: [
+                    { text: "친구들과 헤어질 생각하니 우울하다", type: "F" },
+                    { text: "마지막 수업 이후에 어떤 거 해야할지 우울하다", type: "T" }
+                ]
+            },
+            {
+                situation: "업무 중 나와 의견이 다른 사람이 반문했다.",
+                answers: [
+                    { text: "이렇게 한 이유를 이해할 수 있게 다시 얘기한다", type: "T" },
+                    { text: "왜 나한테 뭐라하지?", type: "F" }
+                ]
+            },
+            {
+                situation: "프로젝트 중, 다른 사람의 실수가 보인다.",
+                answers: [
+                    { text: "다른 거 너무 좋은데 이거는 이렇게 수정하면 어떨까요?", type: "F" },
+                    { text: "이 부분 이렇게 수정해야 할 것 같아요. 그거만 고쳐주세요", type: "T" }
+                ]
+            },
+            {
+                situation: "길가다가 친구가 운다.",
+                answers: [
+                    { text: "갑자기 왜 울어? 무슨 일 있어?", type: "T" },
+                    { text: "괜찮아? 속상한 일 있으면 나한테 얘기해봐", type: "F" }
+                ]
+            },
+            {
+                situation: "마감이 내일모레다.",
+                answers: [
+                    { text: "일단 여기까지 해놨으니까 마저 마무리하면 되겠다", type: "J" },
+                    { text: "여기까지 했는데 하루만 쉬어야겠다", type: "P" }
+                ]
+            },
+            {
+                situation: "친구가 갑자기 1시간이 늦는다고 한다.",
+                answers: [
+                    { text: "우리 그러면 이거 못하는데 최대한 빨리 와", type: "J" },
+                    { text: "오케이~ 너 기다리는 동안 뭐하지?", type: "P" }
+                ]
+            },
+            {
+                situation: "일을 하던 중 갑자기 다른 프로젝트에 대한 \n 좋은 아이디어가 생각났다.",
+                answers: [
+                    { text: "지금 당장 반영해야해", type: "P" },
+                    { text: "이거 여기까지만 마무리하고 켜야지", type: "J" }
+                ]
+            },
+            {
+                situation: "차가 거의 안 다니는 도로에서 \n 무단횡단을 하는 사람을 봤다.",
+                answers: [
+                    { text: "무단횡단을 하네 차가 안다녀서 그런가", type: "P" },
+                    { text: "아무리 차가 없어도 무단횡단은 좀...", type: "J" }
+                ]
+            },
+
+        ];
+
+        let score = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, P: 0, J: 0 };
+        let currentIdx = 0;
+
+        // 질문을 화면에 그리는 함수
+        function renderQuestion() {
+            const currentQuestion = questions[currentIdx];
+
+            // 상황 텍스트 변경
+            document.getElementById("situation-text").innerText = currentQuestion.situation;
+
+            // 버튼들 초기화 후 새로 생성
+            const buttonContainer = document.getElementById("answer-buttons");
+            buttonContainer.innerHTML = "";
+
+            currentQuestion.answers.forEach(answer => {
+                const btn = document.createElement("button");
+                btn.innerText = answer.text;
+                btn.onclick = () => selectAnswer(answer.type); // 클릭 시 점수 계산 함수 실행
+                buttonContainer.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(type) {
+            score[type] += 1;
+            currentIdx++;
+
+            if (currentIdx < questions.length) {
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            // 1. 질문창 숨기고 결과창 보이기
+            document.getElementById("question-container").classList.add("hidden");
+            document.getElementById("result-area").classList.remove("hidden");
+
+            // 2. 점수 비교해서 4글자 만들기
+            let mbti = "";
+
+            // 순서대로 E/I, N/S, F/T, P/J를 비교합니다.
+            mbti += (score.E >= score.I) ? "E" : "I";
+            mbti += (score.N >= score.S) ? "N" : "S";
+            mbti += (score.F >= score.T) ? "F" : "T";
+            mbti += (score.P >= score.J) ? "P" : "J";
+
+            // 3. 화면에 4글자 출력
+            document.getElementById("result-title").innerText = "당신의 유형은: " + mbti;
+        }
+
+        // 페이지 로드 시 첫 번째 질문 실행
+        renderQuestion();
+    </script>
+</body>
+
+</html>

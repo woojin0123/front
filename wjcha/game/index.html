@@ -51,8 +51,10 @@
             width: 100%;
             margin-top: 250px;
             text-align: center;
-            font-size: 6rem;
+            font-size: 5rem;
             color: #111;
+            font-variant-numeric: tabular-nums;
+            font-family: monospace;
         }
 
         .btn-container {
@@ -106,12 +108,7 @@
         .reset:hover {
             cursor: pointer;
         }
-
-        .perfect-score {
-            color: #f1c40f;
-            font-weight: bold;
-            background: rgba(241, 196, 15, 0.1);
-        }
+        
     </style>
 </head>
 
@@ -134,7 +131,7 @@
         </div>
     </div>
 
-<script>
+    <script>
         let timerId;
         let timeStart = 0;
 
@@ -143,7 +140,6 @@
         const stopBtn = document.querySelector('.stop');
         const resetBtn = document.querySelector('.reset');
 
-        // 폭죽 함수를 바깥으로 빼서 어디서든 부를 수 있게 함
         function triggerConfetti() {
             confetti({
                 particleCount: 150,
@@ -155,9 +151,8 @@
         function updateDisplay() {
             let seconds = Math.floor(timeStart / 100);
             let centiseconds = timeStart % 100;
-            // 시각적 재미를 위한 0~9 랜덤값
-            let m = Math.floor(Math.random() * 10); 
 
+            let m = Math.floor(Math.random() * 10);
             let s = String(seconds).padStart(2, '0');
             let c = String(centiseconds).padStart(2, '0');
 
@@ -184,7 +179,6 @@
             clearInterval(timerId);
             timerId = null;
 
-            // 판정 범위: 9.95초(995) ~ 10.05초(1005)
             if (timeStart >= 995 && timeStart <= 1005) {
                 triggerConfetti();
             }
