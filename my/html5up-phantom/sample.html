@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Portfolio with Zoom</title>
+    <style>
+        :root { --modal-bg: rgba(0, 0, 0, 0.95); }
+        body { font-family: sans-serif; margin: 0; padding: 20px; background: #fff; }
+
+        /* [레이아웃] 메인 표지와 사이드 리스트 */
+        .magazine-wrapper { display: flex; max-width: 1000px; margin: 0 auto; gap: 20px; }
+        .main-cover { flex: 2; cursor: pointer; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .main-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .side-thumbnails { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+        .side-item { cursor: pointer; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .side-item img { width: 100%; height: auto; display: block; }
+
+        /* [모달 팝업] */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: var(--modal-bg);
+            align-items: center; 
+            justify-content: center;
+            overflow: hidden; /* 확대 시 스크롤 방지 */
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mySlides { display: none; cursor: grab; transition: transform 0.1s ease-out; }
+        .mySlides:active { cursor: grabbing; }
+        .mySlides img {
+            max-width: 75vw; 
+            max-height: 80vh;
+            object-fit: contain;
+            pointer-events: none; /* 드래그 방해 금지 */
+            user-select: none;
+        }
+
+        /* 닫기 및 버튼 */
+        .close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 30px; cursor: pointer; z-index: 10001; opacity: 0.7; }
+        .close:hover { opacity: 1; }
+
+        .prev, .next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: white; font-size: 40px; padding: 20px; cursor: pointer;
+            background: none; border: none; z-index: 10000;
+        }
+        .prev { left: 5px; }
+        .next { right: 5px; }
+
+        /* 줌 안내 툴팁 */
+        .zoom-info {
+            position: absolute; top: 20px; left: 20px; color: #888; font-size: 12px; z-index: 10000;
+        }
+
+        .counter { position: absolute; bottom: 30px; color: #666; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .magazine-wrapper { flex-direction: column; }
+            .side-thumbnails { flex-direction: row; overflow-x: auto; }
+            .mySlides img { max-width: 85vw; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="magazine-wrapper">
+    <div class="main-cover" onclick="openModal(1)">
+        <img src="images/weverse_4-301429376.jpeg" alt="Cover">
+    </div>
+    <div class="side-thumbnails">
+        <div class="side-item" onclick="openModal(2)"><img src="images/weverse_3-300962404.jpeg"></div>
+        <div class="side-item" onclick="openModal(3)"><img src="images/weverse_4-301429377.jpeg"></div>
+        <div class="side-item" onclick="openModal(4)"><img src="images/weverse_0-288389755.jpeg"></div>
+        <div class="side-item" onclick="openModal(5)"><img src="images/weverse_1-288282832.jpeg"></div>
+    </div>
+</div>
+
+<div id="magazineModal" class="modal" onclick="handleBgClick(event)">
+    <div class="zoom-info">마우스 휠: 확대/축소 | 클릭 후 드래그: 이동</div>
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    <div class="modal-content" id="modalArea">
+        <div class="mySlides"><img src="images/weverse_4-301429376.jpeg"></div>
+        <div class="mySlides"><img src="images/weverse_3-300962404.jpeg"></div>
+        <div class="mySlides"><img src="images/weverse_4-301429377.jpeg"></div>
+        <div class="mySlides"><img src="images/weverse_0-288389755.jpeg"></div>
+        <div class="mySlides"><img src="images/weverse_1-288282832.jpeg"></div>
+
+        <button class="prev" onclick="plusSlides(event, -1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(event, 1)">&#10095;</button>
+        <div id="modalCounter" class="counter"></div>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 1;
+    let scale = 1;
+    let pointX = 0;
+    let pointY = 0;
+    let start = { x: 0, y: 0 };
+    let isDragging = false;
+
+    function openModal(n) {
+        document.getElementById("magazineModal").style.display = "flex";
+        document.body.style.overflow = "hidden";
+        resetZoom();
+        currentSlide(n);
+    }
+
+    function closeModal() {
+        document.getElementById("magazineModal").style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    function plusSlides(e, n) {
+        e.stopPropagation();
+        resetZoom(); // 다음 장 넘길 때 줌 초기화
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        const counter = document.getElementById("modalCounter");
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+        for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+        slides[slideIndex-1].style.display = "block";
+        counter.innerHTML = `${slideIndex} / ${slides.length}`;
+    }
+
+    // [줌 및 드래그 로직]
+    const modalArea = document.getElementById("modalArea");
+
+    function setTransform() {
+        const currentImg = document.getElementsByClassName("mySlides")[slideIndex-1];
+        currentImg.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+    }
+
+    function resetZoom() {
+        scale = 1; pointX = 0; pointY = 0;
+        const slides = document.getElementsByClassName("mySlides");
+        for (let s of slides) { s.style.transform = `translate(0px, 0px) scale(1)`; }
+    }
+
+    // 마우스 휠 줌
+    modalArea.onwheel = function(e) {
+        e.preventDefault();
+        const xs = (e.clientX - pointX) / scale;
+        const ys = (e.clientY - pointY) / scale;
+        const delta = -e.deltaY;
+        (delta > 0) ? (scale *= 1.1) : (scale /= 1.1);
+        if (scale < 1) scale = 1; // 최소 크기 제한
+        setTransform();
+    }
+
+    // 드래그 기능
+    modalArea.onmousedown = function(e) {
+        if (scale === 1) return; // 확대 안 됐을 땐 드래그 금지
+        e.preventDefault();
+        start = { x: e.clientX - pointX, y: e.clientY - pointY };
+        isDragging = true;
+    }
+
+    window.onmousemove = function(e) {
+        if (!isDragging) return;
+        pointX = e.clientX - start.x;
+        pointY = e.clientY - start.y;
+        setTransform();
+    }
+
+    window.onmouseup = function() { isDragging = false; }
+
+    function handleBgClick(event) {
+        // 확대 중이거나 이미지를 클릭했을 때는 닫히지 않음
+        if (!event.target.closest('img') && !event.target.closest('button') && !isDragging) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>

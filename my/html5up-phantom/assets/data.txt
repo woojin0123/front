@@ -1,0 +1,33 @@
+										<div class="gallery-item"><img src="images/weverse_3-312940216.jpeg" alt="">
+										</div>
+										<div class="gallery-item"><img src="images/weverse_4-313402438.jpeg" alt="">
+										</div>
+										<div class="gallery-item"><img src="images/weverse_4-313402439.jpeg" alt="">
+										</div>
+										<div class="gallery-item"><img src="images/weverse_4-313817975.jpeg" alt="">
+										</div>
+
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_01.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_27.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_03.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_24.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_25.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_20.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_07.jpg"
+												alt="">
+										</div>
+										<div class="gallery-item"><img src="images/KakaoTalk_20260112_174211224_26.jpg"
+												alt="">
+										</div>

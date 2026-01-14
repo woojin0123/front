@@ -3,129 +3,147 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap'); */
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
+    format("woff");
   font-weight: 100;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
+    format("woff");
   font-weight: 200;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
+    format("woff");
   font-weight: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
+    format("woff");
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff")
+    format("woff");
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff")
+    format("woff");
   font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff")
+    format("woff");
   font-weight: 800;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Escoredream";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
+    format("woff");
   font-weight: 900;
   font-display: swap;
 }
 
-=======font-family: 'Escoredream';
-src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff');
-font-weight: 100;
-font-display: swap;
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
+    format("woff");
+  font-weight: 100;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
+    format("woff");
   font-weight: 200;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
+    format("woff");
   font-weight: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
+    format("woff");
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff")
+    format("woff");
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff")
+    format("woff");
   font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff")
+    format("woff");
   font-weight: 800;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Escoredream';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff');
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
+    format("woff");
   font-weight: 900;
   font-display: swap;
 }
-
 
 >>>>>>>f20a78e1a62e8a950218d2afeb25352a25819d47 html,
 body,
@@ -283,7 +301,6 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-
   html,
   body {
     min-width: 320px;
@@ -455,6 +472,7 @@ hr {
   border: 0;
   border-bottom: solid 1px #c9c9c9;
   margin: 2em 0;
+  margin-top: 50px;
 }
 
 hr.major {
@@ -651,7 +669,7 @@ hr.major {
 }
 
 /* --- 메뉴 내부 콘텐츠 영역 --- */
-#menu>.inner {
+#menu > .inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -723,7 +741,7 @@ hr.major {
   cursor: pointer;
 }
 
-#menu>.close {
+#menu > .close {
   -moz-transition: opacity 0.45s ease, -moz-transform 0.45s ease;
   -webkit-transition: opacity 0.45s ease, -webkit-transform 0.45s ease;
   -ms-transition: opacity 0.45s ease, -ms-transform 0.45s ease;
@@ -748,8 +766,8 @@ hr.major {
   white-space: nowrap;
 }
 
-#menu>.close:before,
-#menu>.close:after {
+#menu > .close:before,
+#menu > .close:after {
   -moz-transition: opacity 0.2s ease;
   -webkit-transition: opacity 0.2s ease;
   -ms-transition: opacity 0.2s ease;
@@ -766,21 +784,21 @@ hr.major {
   background-size: 2em 2em;
 }
 
-#menu>.close:before {
+#menu > .close:before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23f2849e%3B %7D%3C/style%3E%3Cline x1='15' y1='15' x2='85' y2='85' /%3E%3Cline x1='85' y1='15' x2='15' y2='85' /%3E%3C/svg%3E");
   opacity: 0;
 }
 
-#menu>.close:after {
+#menu > .close:after {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23585858%3B %7D%3C/style%3E%3Cline x1='15' y1='15' x2='85' y2='85' /%3E%3Cline x1='85' y1='15' x2='15' y2='85' /%3E%3C/svg%3E");
   opacity: 1;
 }
 
-#menu>.close:hover:before {
+#menu > .close:hover:before {
   opacity: 1;
 }
 
-#menu>.close:hover:after {
+#menu > .close:hover:after {
   opacity: 0;
 }
 
@@ -793,19 +811,19 @@ hr.major {
     width: 16.5em;
   }
 
-  #menu>.inner {
+  #menu > .inner {
     padding: 2.75em 1.5em;
   }
 
-  #menu>.close {
+  #menu > .close {
     top: 0.5em;
     left: -4.25em;
     width: 4.25em;
     text-indent: 4.25em;
   }
 
-  #menu>.close:before,
-  #menu>.close:after {
+  #menu > .close:before,
+  #menu > .close:after {
     background-size: 1.5em 1.5em;
   }
 }
@@ -824,7 +842,7 @@ body.is-menu-visible #menu {
   visibility: visible;
 }
 
-body.is-menu-visible #menu>* {
+body.is-menu-visible #menu > * {
   opacity: 1;
 }
 
@@ -855,7 +873,7 @@ body.is-menu-visible #menu .close {
   background-color: #f6f6f6;
 }
 
-#footer>.inner .copyright {
+#footer > .inner .copyright {
   width: 100%;
   padding: 0;
   margin-top: 5em;
@@ -867,7 +885,7 @@ body.is-menu-visible #menu .close {
 
 /* Wrapper */
 
-#wrapper>*>.inner {
+#wrapper > * > .inner {
   width: 100%;
   max-width: 68em;
   margin: 0 auto;
@@ -875,7 +893,7 @@ body.is-menu-visible #menu .close {
 }
 
 @media screen and (max-width: 736px) {
-  #wrapper>*>.inner {
+  #wrapper > * > .inner {
     padding: 0 1.25em;
   }
 }
@@ -985,7 +1003,6 @@ body.is-menu-visible #menu .close {
   margin-right: 15px !important;
   background: none !important;
   /* 배경 원형 제거 */
-
 }
 
 #main ul.sub-tabs li p {
@@ -997,16 +1014,14 @@ body.is-menu-visible #menu .close {
   border-radius: 4px;
   /* 사각형 느낌으로 변경하여 상위 탭과 구분 */
   color: #666;
-
 }
 
 /* 하위 탭 활성화 상태 */
 #main ul.sub-tabs li.current p {
-  background: #5C6679 !important;
+  background: #5c6679 !important;
   color: #fff !important;
   text-decoration: none !important;
   font-weight: 500;
-
 }
 
 /* [해결] 탭 내부 이미지 배치 안정화 */
@@ -1143,13 +1158,11 @@ body.is-menu-visible #menu .close {
     margin-bottom: 60px;
     font-size: 1.1em;
   }
-
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill,
-      minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   /* 반응형 열 배치 */
   gap: 40px;
   /* 이미지 사이 간격 */
@@ -1171,32 +1184,30 @@ body.is-menu-visible #menu .close {
   /* 마우스 올렸을 때 효과 */
 }
 
-
 /* 매거진 페이지 그리드 중앙 정렬 */
 .magazine .gallery-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, 200px) !important;
-    justify-content: center !important;
-    gap: 20px 30px !important;
-    width: 100% !important;
-    margin: 20px auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center !important;
+  gap: 20px 30px !important;
+  width: 100% !important;
+  margin: 20px auto !important;
 }
 
 .magazine .gallery-item {
   width: 200px !important;
-
 }
 
 .magazine .image-box {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    background: #000;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .magazine .image-box .site {
@@ -1210,40 +1221,39 @@ body.is-menu-visible #menu .close {
 }
 
 .magazine .image-box:hover .site {
-    opacity: 0;
+  opacity: 0;
 }
 .magazine .image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: all 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.4s ease;
 }
-
 
 /* 호버 시 나타날 텍스트 */
 .magazine .gallery-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 15px;
-    
-    color: #fff !important;
-    font-weight: 600;
-    font-size: 0.95em;
-    background: rgba(0, 0, 0, 0.7);
-    
-    /* 초기 상태: 숨김 */
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.95em;
+  background: rgba(0, 0, 0, 0.7);
+
+  /* 초기 상태: 숨김 */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
 }
 
 .magazine .gallery-text span {
@@ -1252,10 +1262,312 @@ body.is-menu-visible #menu .close {
 
 /* [Hover 효과] .magazine 내부의 image-box에 마우스 올렸을 때 */
 .magazine .image-box:hover .gallery-text {
-    opacity: 1;
+  opacity: 1;
 }
 
 .magazine .image-box:hover img {
-    transform: scale(1.1);
-    opacity: 0.7;
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* 매거진 페이지 그리드 중앙 정렬 */
+.magazine .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center !important;
+  gap: 20px 30px !important;
+  width: 100% !important;
+  margin: 20px auto !important;
+}
+
+.magazine .gallery-item {
+  width: 200px !important;
+}
+
+.magazine .image-box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.magazine .image-box .site {
+  position: absolute;
+  width: 30px;
+  height: auto;
+  top: 10px;
+  left: 160px;
+  z-index: 1;
+  box-shadow: none !important;
+}
+
+.magazine .image-box:hover .site {
+  opacity: 0;
+}
+.magazine .image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+/* [1. 기본 설정 및 레이아웃] */
+.design body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+}
+
+.design2 p, .album p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+
+.design2 h3, .album p {
+  margin-bottom: 4px;
+}
+
+.design2 h4, .album p {
+  letter-spacing: normal;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 0.7em;
+}
+
+.design .magazine-wrapper {
+  display: flex;
+  max-width: 800px;
+  margin: 60px auto;
+  gap: 20px;
+}
+
+.design .main-cover {
+  flex: 2;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.design .main-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.design .side-thumbnails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.design .side-item {
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.design .side-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* [2. 가로형 전용 레이아웃 - 세 번째 덩어리] */
+.design .magazine-wrapper.horizontal {
+  flex-direction: column;
+}
+
+.design .magazine-wrapper.horizontal .main-cover {
+  width: 100%;
+}
+
+.design .magazine-wrapper.horizontal .side-thumbnails {
+  flex-direction: row;
+  width: 100%;
+  gap: 15px;
+}
+
+.design .magazine-wrapper.horizontal .side-item {
+  flex: 1;
+}
+
+.design .magazine-wrapper.horizontal .side-item img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* [3. 모달 팝업 공통] */
+.design .modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.design .modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.design .mySlides {
+  display: none;
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+}
+
+.design .mySlides:active {
+  cursor: grabbing;
+}
+
+.design .mySlides img {
+  max-width: 50vw;
+  max-height: 80vh;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* [4. 모달 컨트롤 및 기타] */
+.design .close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10001;
+  opacity: 0.7;
+}
+
+.design .close:hover {
+  opacity: 1;
+}
+
+.design .prev,
+.design .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 40px;
+  padding: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 10000;
+}
+
+.design .prev {
+  left: 10px;
+}
+
+.design .next {
+  right: 10px;
+}
+.design .prev:hover,
+.design .next:hover {
+  color: #a7a7a7;
+}
+
+.design .zoom-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #555;
+  font-size: 12px;
+  z-index: 10000;
+}
+
+.design .counter {
+  position: absolute;
+  bottom: 30px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* [5. 반응형 디자인] */
+@media (max-width: 768px) {
+  .design .magazine-wrapper {
+    flex-direction: column;
+  }
+  .design .side-thumbnails {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .design .mySlides img {
+    max-width: 85vw;
+  }
+  .design2 p, .album p {
+    text-align: center;
+  }
+
+  .design2 h4, .album p {
+    text-align: center;
+  }
+}
+
+.design .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 280px) !important;
+  justify-content: center !important;
+  gap: 20px 30px !important;
+  width: 100% !important;
+  margin: 20px auto !important;
+}
+
+/* .design .gallery-item {
+  width: 280px !important;
+  height: 280px !important;
+  background: transparent !important;
+} */
+
+.design .gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* 데이터가 주입되는 컨테이너 자체를 그리드로 만듭니다 */
+.product_list, .dslr_list, .film_list, .md_list, .profile_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

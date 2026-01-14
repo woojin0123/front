@@ -35,6 +35,12 @@
 				<h2><a href="index.html">HOME</a></h2>
 				<ul>
 					<li>
+						<span>ALBUM</span>
+						<ul>
+							<li><a href="album.html">▷ Broadcast</a></li>
+						</ul>
+					</li>
+					<li>
 						<span>CONTENTS</span>
 						<ul>
 							<li><a href="video.html">▷ Video</a></li>
@@ -58,61 +64,111 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<div class="design">
+				<div class="design2">
 					<h1>Design</h1>
 					<div class="tabb">
 						<h3>작업: <strong>100%</strong></h3>
-
-						<ul class="tabs">
-							<li class="tab-link" data-tab="tab-1">
-								<p>역조공</p>
-							</li>
-							<li class="tab-link" data-tab="tab-2">
-								<p>SNS 콘텐츠</p>
-							</li>
-						</ul>
-
+						<p>기획 콘텐츠, 이벤트, 영상 섬네일, 축전, 음악 방송 & 역조공 물품 등</p>
+						<h4>사진의 경우 직접 촬영 & 리터칭 함께 진행 (축전 제외)</h4>
+						<hr>
 						<div id="tab-1" class="tab-content current">
-						</div>
+							<div class="design">
+								<div class="magazine-wrapper">
+									<div class="main-cover" onclick="openMagazine(this, 1)">
+										<img src="images/weverse_4-301429376.jpeg" alt="Cover">
+									</div>
+									<div class="side-thumbnails">
+										<div class="side-item" onclick="openMagazine(this, 2)"><img
+												src="images/weverse_3-300962404.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 3)"><img
+												src="images/weverse_4-301429377.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 4)"><img
+												src="images/weverse_0-288389755.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 5)"><img
+												src="images/weverse_1-288282832.jpeg"></div>
+									</div>
+								</div>
 
-						<div id="tab-2" class="tab-content">
+								<div class="magazine-wrapper">
+									<div class="main-cover" onclick="openMagazine(this, 1)">
+										<img src="images/weverse_0-290135024.jpeg" alt="Cover">
+									</div>
+									<div class="side-thumbnails">
+										<div class="side-item" onclick="openMagazine(this, 2)"><img
+												src="images/weverse_2-289446657.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 3)"><img
+												src="images/weverse_0-290135025.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 4)"><img
+												src="images/weverse_1-290026094.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 5)"><img
+												src="images/weverse_3-304450087.jpeg"></div>
+									</div>
+								</div>
+
+								<div class="magazine-wrapper horizontal">
+									<div class="main-cover" onclick="openMagazine(this, 1)">
+										<img src="images/weverse_3-312324940.jpeg" alt="Cover">
+									</div>
+									<div class="side-thumbnails">
+										<div class="side-item" onclick="openMagazine(this, 2)"><img
+												src="images/weverse_1-293963825.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 3)"><img
+												src="images/weverse_4-301429377.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 4)"><img
+												src="images/weverse_3-312324941.jpeg"></div>
+										<div class="side-item" onclick="openMagazine(this, 5)"><img
+												src="images/weverse_4-312788855.jpeg"></div>
+									</div>
+								</div>
+
+								<div id="magazineModal" class="modal" onclick="handleBgClick(event)">
+									<div class="zoom-info">휠: 확대/축소 | 드래그: 이동</div>
+									<span class="close" onclick="closeModal()">&times;</span>
+									<div class="modal-content" id="modalArea">
+										<div id="slideContainer"></div> <button class="prev"
+											onclick="plusSlides(event, -1)">&#10094;</button>
+										<button class="next" onclick="plusSlides(event, 1)">&#10095;</button>
+										<div id="modalCounter" class="counter"></div>
+									</div>
+								</div>
+
+
 							<div class="gallery-grid">
-								<div class="gallery-item"><img src="images/weverse_4-301429376.jpeg" alt="">
-								</div>
-								<div class="gallery-item"><img src="images/weverse_3-300962404.jpeg" alt="">
-								</div>
-								<div class="gallery-item"><img src="images/weverse_4-301429377.jpeg" alt="">
-								</div>
-								<div class="gallery-item"><img src="images/weverse_0-288389755.jpeg" alt="">
-								</div>
-								<div class="gallery-item"><img src="images/weverse_1-288282832.jpeg" alt="">
-								</div>
+
+					
+								
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
-			<footer id="footer">
-				<div class="inner">
-					<ul class="copyright">
-						<li>&copy; 2026 CWJ. All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
+		</div>
+	</div>
+	<footer id="footer">
+		<div class="inner">
+			<ul class="copyright">
+				<li>&copy; 2026 CWJ. All rights reserved.</li>
+			</ul>
+		</div>
+	</footer>
 
-			<!-- Scripts -->
-			<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-			<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
 
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/tab.js"></script>
-			<script src="assets/js/slider.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/tab.js"></script>
+	<script src="assets/js/slider.js"></script>
+	<script src="assets/js/design.js"></script>
+	<script src="assets/js/designdata.js"></script>
+	<script src="assets/js/img.js"></script>
 
 
 </body>
