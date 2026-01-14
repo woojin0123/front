@@ -15,7 +15,7 @@
 
         .horizontal-wrap {
             display: flex;
-            /* width: 400vw; */
+            /* width: 500vw; */
             /* height: 100vh; */
         }
 
@@ -46,9 +46,8 @@
         .page4 {
             background: #ffc93c;
         }
-
         .page5 {
-            background: hsl(140, 100%, 86%);
+            background: #19ffc6;
         }
     </style>
 </head>
@@ -59,13 +58,12 @@
         <section class="page page2">Page 2</section>
         <section class="page page3">Page 3</section>
         <section class="page page4">Page 4</section>
-        <section class="page page5">Page 5</section>
-        <section class="page page5">Page 5</section>
     </div>
 
     <script>
         let currentPage = 0;
         const totalPages = document.querySelectorAll('.page').length;
+        console.log('totalPages', totalPages);
         let isScrolling = false; // ⭐ 추가
 
         window.addEventListener("wheel", function (e) {

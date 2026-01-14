@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도드람</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: #b8c8db;
+        }
+
+        /* 슬라이더 전체 컨테이너 중앙 정렬 */
+        .slider-container {
+            width: 1060px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .bx-wrapper {
+            background: none;
+            border: none;
+            box-shadow: none;
+            margin-bottom: 0; /* 하단 기본 여백 제거 */
+        }
+
+        /* 인디케이터(점)와 재생버튼을 감싸는 영역 위치 조정 */
+        .bx-wrapper .bx-controls {
+            z-index: 100;
+            position: absolute;
+            bottom: 20px;   /* 하단에서 20px 띄움 */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            line-height: 1;
+            display: flex;
+        }
+
+        /* 인디케이터(Pager) 스타일 */
+        .bx-wrapper .bx-pager {
+            position: relative;
+            top: 0;
+            padding: 0;
+            order: 1;
+            vertical-align: middle;
+        }
+        .bx-wrapper .bx-pager a.active {
+            background: #fff !important;
+            width: 24px;
+        }
+
+        /* 재생/일시정지 버튼 스타일 */
+        .bx-wrapper .bx-controls-auto {
+            position: relative;
+            top: 0;
+            left: -10px;
+            width: 100px !important;
+            order: 2;
+            vertical-align: middle;
+        }
+
+        /* 슬라이드 이미지 라운딩 처리 (이미지처럼) */
+        .bxslider img {
+            border-radius: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="bxslider">
+            <div><img src="assets/82aecbd90fe04e4f6e9ab77bf9971edf_25206.png" alt="이미지1"></div>
+            <div><img src="assets/636df30c3aef1cd9391a65bab9dec200_87173.png" alt="이미지2"></div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.bxslider').bxSlider({
+                auto: true,
+                autoControls: true, // 시작/일시정지 버튼 활성화
+                stopAutoOnClick: true,
+                autoHover: true,
+                pager: true,        // 인디케이터 활성화
+                controls: false,    // 좌우 화살표 숨김
+                slideWidth: 1060,
+                touchEnabled: false // 크롬/엣지에서 클릭 이슈 방지용
+            });
+        });
+    </script>
+</body>
+
+</html>
