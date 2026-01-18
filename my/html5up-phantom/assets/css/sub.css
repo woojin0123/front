@@ -1604,12 +1604,12 @@ body.is-menu-visible #menu .close {
 }
 
 .design .gallery-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 280px) !important;
-  justify-content: center !important;
-  gap: 20px 30px !important;
-  width: 100% !important;
-  margin: 20px auto !important;
+    display: block; 
+    column-count: 3; 
+    column-gap: 20px; 
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* .design .gallery-item {
