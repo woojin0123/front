@@ -7,6 +7,7 @@ const img_list = [
 {link: "images/2026-01-14 144223.jpg"},
 {link: "images/2026-01-14 144050.jpg"},
 {link: "images/2026-01-14 144106.jpg"},
+{link: "images/indexaas.jpeg"},
 {link: "images/KakaoTalk_20260114_141314597_07.jpg"},
 {link: "images/KakaoTalk_20260114_141314597_14.jpg"},
 {link: "images/KakaoTalk_20260114_141314597_16.jpg"},
@@ -22,6 +23,9 @@ const img_list = [
 {link: "images/2026-01-14 143909.jpg"},
 {link: "images/2026-01-14 143925.jpg"},
 {link: "images/2026-01-14 143952.jpg"},
+{link: "images/스크린샷2026-01-18오후6.14.50.png"},
 {link: "images/2026-01-14 144005.jpg"},
+{link: "images/KakaoTalk_Photo_2026-01-18-18-34-23001.jpeg"},
+{link: "images/KakaoTalk_Photo_2026-01-18-18-34-23002.jpeg"},
 ];
 
