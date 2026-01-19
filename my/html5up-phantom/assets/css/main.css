@@ -2338,6 +2338,15 @@ ul.icons li {
 .tiles article.style6>.image:before {
 	background-color: #8499e7;
 }
+.tiles article.style7>.image:before {
+	background-color: #84e7d7;
+}
+.tiles article.style8>.image:before {
+	background-color: #84e794;
+}
+.tiles article.style9>.image:before {
+	background-color: #e7e584;
+}
 
 body:not(.is-touch) .tiles article:hover>.image {
 	-moz-transform: scale(1.1);
@@ -2426,7 +2435,7 @@ body.is-touch .tiles article .content {
 @media screen and (max-width: 480px) {
 
 	.tiles {
-		margin: 0;
+		margin: -1.25em 0 0 -1.25em;
 	}
 
 	.tiles article {
@@ -2948,9 +2957,6 @@ body.is-menu-visible #menu .close {
 	transition: none;
 }
 
-.style4 {
-	display: none;
-}
 
 .txt {
 	margin: 80px 0 15px 0;

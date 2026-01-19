@@ -470,7 +470,7 @@ pre code {
 
 hr {
   border: 0;
-  border-bottom: solid 1px #c9c9c9;
+  border-bottom: solid 1px #eee;;
   margin: 2em 0;
   margin-top: 50px;
 }
@@ -1160,31 +1160,16 @@ body.is-menu-visible #menu .close {
   }
 }
 
-/* .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-  padding: 40px;
-}
 
-.gallery-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.2);
-} */
 
 .gallery-item img:hover {
   opacity: 0.8;
-  /* 마우스 올렸을 때 효과 */
 }
 
 .product_list, .dslr_list, .film_list, .md_list, .profile_list {
-    display: block; /* 그리드 대신 블록으로 변경 */
-    column-count: 3; /* 한 줄에 보여줄 열 개수 */
-    column-gap: 20px; /* 열 사이 간격 */
+    display: block; 
+    column-count: 3; 
+    column-gap: 20px; 
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
@@ -1192,17 +1177,19 @@ body.is-menu-visible #menu .close {
 }
 
 .gallery-item {
-    display: inline-block; /* 내부 아이템들이 끊기지 않게 설정 */
+    display: inline-block; 
     width: 100%;
-    margin-bottom: 20px; /* 아래쪽 간격 */
+    margin-bottom: 20px; 
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto; /* 높이는 자동으로 조절 */
+    height: auto;
     display: block;
+    /* box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.2); */
 }
 
 /* 모바일 대응 */
@@ -1212,6 +1199,31 @@ body.is-menu-visible #menu .close {
     }
 }
 
+.photo #tab-1 {
+  margin-top: 30px;
+}
+.magazine .tabb h3 {
+  padding: 0;
+  margin: 0;
+}
+.magazine .tabb p {
+  font-size: 0.8em;
+}
+.magazine .category-header {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.magazine .category-header p {
+  margin: 0;
+  padding: 3px 0;
+  text-align: center;
+}
+
+.magazine #tab-1 .category-header p {
+  font-size: 16px;
+    padding: 3px 0;
+}
 /* 매거진 페이지 그리드 중앙 정렬 */
 .magazine .gallery-grid {
   display: grid !important;
@@ -1226,15 +1238,16 @@ body.is-menu-visible #menu .close {
   width: 200px !important;
 }
 
+
 .magazine .image-box {
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  background: #000;
+  /* background: #000; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -1258,6 +1271,7 @@ body.is-menu-visible #menu .close {
   display: block;
   transition: all 0.4s ease;
 }
+
 
 /* 호버 시 나타날 텍스트 */
 .magazine .gallery-text {
@@ -1320,7 +1334,7 @@ body.is-menu-visible #menu .close {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  background: #000;
+  /* background: #000; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -1345,7 +1359,24 @@ body.is-menu-visible #menu .close {
   transition: all 0.4s ease;
 }
 
-/* [1. 기본 설정 및 레이아웃] */
+.magazine .gallery-item2 {
+  width: 300px !important;
+  height: 200px !important;
+  background: none;
+}
+.magazine .gallery-item2 img {
+  width: 200px !important;
+  height: 100px !important;
+  background: none;
+}
+.magazine .gallery-item2:hover img {
+    padding: 30px 50px;
+    overflow: visible;
+    transform: scale(1.4);
+}
+
+
+
 .design body {
   font-family: sans-serif;
   margin: 0;
@@ -1353,13 +1384,13 @@ body.is-menu-visible #menu .close {
   background: #fff;
 }
 
-.design2 p, .album p {
+.design2 p, .photo p, .fansign p {
   margin: 0;
   padding: 0;
   font-size: 0.8em;
 }
 
-.design2 h3, .album p {
+.design2 h3, .album h3, .photo h3, .photo p {
   margin-bottom: 4px;
 }
 
@@ -1549,22 +1580,22 @@ body.is-menu-visible #menu .close {
   .design .mySlides img {
     max-width: 85vw;
   }
-  .design2 p, .album p {
+  .design2 p, .album p, .photo p, .fansign p {
     text-align: center;
   }
 
-  .design2 h4, .album p {
+  .design2 h4, .album p, .magazine p {
     text-align: center;
   }
 }
 
 .design .gallery-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 280px) !important;
-  justify-content: center !important;
-  gap: 20px 30px !important;
-  width: 100% !important;
-  margin: 20px auto !important;
+    display: block; 
+    column-count: 2; 
+    column-gap: 20px; 
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* .design .gallery-item {
@@ -1579,4 +1610,340 @@ body.is-menu-visible #menu .close {
   display: block !important;
 }
 
+		.offline .tab-content {
+			display: none !important;
 
+		}
+
+		.offline .tab-content.current {
+			display: flex !important;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		.offline .name {
+			display: flex !important;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 50px;
+			width: 100%;
+			text-align: left;
+			margin-bottom: 30px
+		}
+
+		.offline .name .right {
+			flex: 1;
+			/* 남은 공간 사용 */
+			max-width: 400px;
+			flex-direction: column;
+			align-items: center;
+			white-space: nowrap;
+		}
+
+		.offline .name .left {
+			display: flex;
+			flex: 0 0 400px;
+			width: 400px;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.offline .name .right .text p {
+			font-weight: 400;
+			font-size: 0.9em;
+
+		}
+
+		.offline .tabb h4,
+		.offline .tabb h5 {
+			margin-top: 20px;
+			letter-spacing: normal;
+			text-transform: none;
+			font-size: 1.1em;
+			font-weight: 600;
+			color: #5C667A;
+			margin: 0;
+		}
+
+		.offline .tabb h5 {
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			letter-spacing: normal;
+			text-transform: none;
+			font-size: 1.1em;
+			font-weight: 600;
+			color: #5C667A;
+			background: #fcffd6;
+		}
+
+		.offline .tabb h4 span {
+			letter-spacing: normal;
+			text-transform: none;
+			font-size: 1.2em;
+			color: #585858;
+			font-weight: 900;
+			/* background: #ffd4d4; */
+			border-radius: 5px;
+		}
+
+		.offline .tabb h4 .im {
+			font-size: 0.7em;
+			font-weight: bold;
+			background: none;
+		}
+
+		.offline .tabb span {
+			font-size: 0.7em;
+			font-weight: 500;
+			color: #5C667A;
+		}
+
+
+		.offline .tabb img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			width: 400px;
+			border-radius: 10px;
+			margin-top: 30px;
+			margin-bottom: 10px;
+			box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.offline .tabb #tab-1 p,
+		.offline .tabb #tab-2 p {
+			padding: 0;
+			margin: 0;
+		}
+
+		.offline .tabb h3 {
+			font-weight: 600;
+			font-size: 0.9em;
+			margin: 0;
+			padding: 0;
+			margin-top: 3px;
+			margin-bottom: 30px;
+			color: #585858;
+			color: rgb(133, 129, 114);
+		}
+
+		.offline hr {
+			margin: 30px 0;
+			/* display: none; */
+		}
+
+		.offline hr.hrtop {
+			display: none;
+		}
+
+		.offline hr.hrbt {
+			display: none;
+		}
+
+		@media screen and (max-width: 736px) {
+      .offline p {
+        text-align: center;
+        font-size: 0.8em;
+      }
+			.offline .tabb {
+				text-align: center;
+			}
+
+			.offline .name {
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 40px;
+			}
+
+			.offline .name .left {
+        display: block;
+        margin: 0 auto;
+			}
+
+			.offline .name .right {
+				width: 100%;
+				align-items: center;
+				text-align: center;
+			}
+
+			.offline .name .right p {
+        display: block;
+        margin: 0 auto;
+				width: 400px;
+			}
+
+			.offline .tabb h5 {
+				display: inline-block;
+				margin: 0 auto 5px auto !important;
+			}
+
+			.offline .tabb h4,
+			.offline .tabb h5 {
+				text-align: center;
+				margin-top: 0px;
+			}
+
+			.offline .name .left {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				margin-bottom: 10px;
+			}
+
+			.offline hr.hrtop {
+				display: none;
+			}
+
+			.offline hr.hrbt {
+				display: block;
+				margin-bottom: 0;
+			}
+		}
+
+		/* 상단의 .offline .tab-content.current 의 !important를 덮어쓰기 위해 더 구체적인 선택자 사용 */
+		.offline .tabb div#tab-2.tab-content.current {
+			display: grid !important;
+			/* 강제로 그리드 적용 */
+			width: 100%;
+			margin: 0 auto;
+			grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+			gap: 20px;
+			justify-content: center;
+			align-items: start;
+			white-space: nowrap;
+		}
+		.offline .tabb #tab-2 .name {
+			display: block !important;
+			width: 400px;
+			margin: 0 auto 30px auto;
+			text-align: left;
+		}
+
+		.offline .tabb #tab-2 .name .text {
+			height: 150px;
+		}
+
+		.offline .tabb #tab-2 h4 {
+			display: inline-block;
+			margin-top: 20px;
+			letter-spacing: normal;
+			text-transform: none;
+			font-size: 1.1em;
+			font-weight: 600;
+			color: #5C667A;
+		}
+
+		.offline .tabb #tab-2 h4 span {
+			letter-spacing: normal;
+			text-transform: none;
+			font-size: 1.2em;
+			color: #585858;
+			font-weight: 900;
+			border-radius: 5px;
+		}
+
+		.offline .tabb #tab-2 h4 .im {
+			font-size: 0.7em;
+			font-weight: bold;
+			background: none;
+		}
+
+		.offline .tabb #tab-2 span {
+			font-size: 0.8em;
+			font-weight: 500;
+			color: #5C667A;
+		}
+
+		.offline .tabb #tab-2 img {
+			width: 400px;
+			border-radius: 10px;
+			margin-top: 30px;
+		}
+
+		.offline .tabb #tab-2 p {
+			padding: 0;
+			margin: 0;
+		}
+
+		
+.fansign .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+  padding: 40px;
+}
+
+.fansign .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.fansign .gallery-text {
+    padding: 20px;
+    text-align: center;
+}
+.fansign .gallery-text p {
+  /* display: block; */
+  font-size: 0.75em;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.fansign .gallery-text span {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 736px) {
+			.offline .tabb div#tab-2.tab-content.current {
+				display: block !important;
+				text-align: center;
+			}
+
+			.offline .tabb #tab-2 .name {
+				width: 100%;
+				text-align: center;
+			}
+
+			.offline .tabb #tab-2 img {
+				display: block;
+				margin: 20px auto;
+			}
+
+.fansign .gallery-grid {
+  display: block;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.fansign .gallery-text {
+  padding: 0px;
+
+}
+.fansign .gallery-text p {
+  font-size: 1em;
+  font-weight: 400;
+  white-space: nowrap;
+
+}
+
+.fansign .gallery-text span {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+		}

@@ -28,13 +28,13 @@ film_list.forEach((item) => {
   `;
 });
 
-md_list.forEach((item) => {
-  mdList.innerHTML += `
-    							<div class="gallery-item">
-										<img src="${item.link}" alt="사진">
-								</div>
-  `;
-});
+// md_list.forEach((item) => {
+//   mdList.innerHTML += `
+//     							<div class="gallery-item">
+// 										<img src="${item.link}" alt="사진">
+// 								</div>
+//   `;
+// });
 
 profile_list.forEach((item) => {
   profileList.innerHTML += `
