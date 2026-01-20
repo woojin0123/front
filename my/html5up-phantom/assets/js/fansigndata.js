@@ -105,18 +105,18 @@ const img_list = [
     online: "4",
 },
 {
-    link: "https://cdnimg.melon.co.kr/cm2/album/images/115/60/237/11560237_20240806161213_500.jpg?YUV444/melon/resize/282",
-    artist: "LIGHTSUM Digital Single",
-    album: "POSE!",
-    offline: "2",
-    online: "2",
-},
-{
     link: "https://cdnimg.melon.co.kr/cm2/album/images/115/33/515/11533515_20240708112323_500.jpg?2e79752cdadc779a43f0926c0d64dcb8/melon/resize/260/quality/80/optimizee",
     artist: "i-dle 7th Mini Album",
     album: "I SWAY",
     offline: "5",
     online: "11",
+},
+{
+    link: "https://cdnimg.melon.co.kr/cm2/album/images/115/60/237/11560237_20240806161213_500.jpg?YUV444/melon/resize/282",
+    artist: "LIGHTSUM Digital Single",
+    album: "POSE!",
+    offline: "2",
+    online: "2",
 },
 {
     link: "https://cdnimg.melon.co.kr/cm2/album/images/116/85/273/11685273_20250121180401_500.jpg?eecd8354811239b19bd269695cb17eaf/melon/resize/260/quality/80/optimize",

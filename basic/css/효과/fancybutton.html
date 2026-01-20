@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+  line-height: 24px;
+  color: #333;
+  background: #ececec;
+  overflow-y: scroll;
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #00AE68;
+}
+
+.clear {
+  clear: both;
+}
+
+.pageTitle {
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1em;
+  color: #00AE68;
+}
+
+.pageSubTitle {
+  margin-bottom: 0.5em;
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 1em;
+  color: #222;
+}
+
+.articleTitle {
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1em;
+  color: #222;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 20px auto;
+}
+
+.container {
+  padding-top: 1em;
+  margin-top: 1em;
+  border-top: 
+    solid
+    1px
+    #CCC;
+}
+
+a.button {
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  margin: 10px 20px 10px 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  transition: all 0.2s ;
+}
+
+.btnBlueGreen {
+  background: #00AE68;
+}
+
+.btnLightBlue {
+  background: #5DC8CD;
+}
+
+.btnOrange {
+  background: #FFAA40;
+}
+
+.btnPurple {
+  background: #A74982;
+}
+
+/* FADE */
+.btnFade.btnBlueGreen:hover {
+  background: #21825B;
+}
+
+.btnFade.btnLightBlue:hover {
+  background: #01939A;
+}
+
+.btnFade.btnOrange:hover {
+  background: #FF8E00;
+}
+
+.btnFade.btnPurple:hover {
+  background: #6D184B;
+}
+
+/* 3D */
+.btnBlueGreen.btnPush {
+  box-shadow: 0px 5px 0px 0px #007144;
+}
+
+.btnLightBlue.btnPush {
+  box-shadow: 0px 5px 0px 0px #1E8185;
+}
+
+.btnOrange.btnPush {
+  box-shadow: 0px 5px 0px 0px #A66615;
+}
+
+.btnPurple.btnPush {
+  box-shadow: 0px 5px 0px 0px #6D184B;
+}
+
+.btnPush:hover {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.btnBlueGreen.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.btnLightBlue.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #1E8185;
+}
+
+.btnOrange.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #A66615;
+}
+
+.btnPurple.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #6D184B;
+}
+
+/* BORDER */
+.btnBlueGreen.btnBorder {
+  box-shadow: 0px 0px 0px 0px #21825B;
+}
+
+.btnBlueGreen.btnBorder:hover {
+  box-shadow: 0px 0px 0px 5px #21825B;
+}
+
+.btnLightBlue.btnBorder {
+  box-shadow: 0px 0px 0px 0px #01939A;
+}
+
+.btnLightBlue.btnBorder:hover {
+  box-shadow: 0px 0px 0px 5px #01939A;
+}
+
+.btnOrange.btnBorder {
+  box-shadow: 0px 0px 0px 0px #A66615;
+}
+
+.btnOrange.btnBorder:hover {
+  box-shadow: 0px 0px 0px 5px #A66615;
+}
+
+.btnPurple.btnBorder {
+  box-shadow: 0px 0px 0px 0px #6D184B;
+}
+
+.btnPurple.btnBorder:hover {
+  box-shadow: 0px 0px 0px 5px #6D184B;
+}
+
+/* FLOAT */
+.btnFloat {
+  background: none;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btnFloat:before {
+  content: 'Float';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 50px;
+  border-radius: 5px;
+  transition: all 0.2s ;
+}
+
+.btnBlueGreen.btnFloat:before {
+  background: #00AE68;
+}
+
+.btnLightBlue.btnFloat:before {
+  background: #5DC8CD;
+}
+
+.btnOrange.btnFloat:before {
+  background: #FFAA40;
+}
+
+.btnPurple.btnFloat:before {
+  background: #8D336A;
+}
+
+
+.btnFloat:before {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+.btnFloat:hover:before {
+  
+}
+
+.btnFloat:hover:before {
+  margin-top: -2px;
+  margin-left: 0px;
+  transform: scale(1.1,1.1);
+  -ms-transform: scale(1.1,1.1);
+  -webkit-transform: scale(1.1,1.1);
+  box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+/* SLIDE */
+.btnSlide.btnBlueGreen {
+  background: 0;
+}
+
+.btnSlide .top {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 120px;
+  height: 50px;
+  background: #00AE68;
+  z-index: 10;
+  transition: all 0.2s ;
+  border-radius: 5px;
+}
+
+.btnSlide.btnBlueGreen .top {
+  background: #00AE68;
+}
+
+.btnSlide.btnLightBlue .top {
+  background: #5DC8CD;
+}
+
+.btnSlide.btnOrange .top {
+  background: #FFAA40;
+}
+
+.btnSlide.btnPurple .top {
+  background: #A74982;
+}
+
+.btnSlide .bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 50px;
+  color: #000;
+  z-index: 5;
+  border-radius: 5px;
+}
+
+.btnSlide:hover .top {
+  top: 40px;
+}
+
+    </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h3 class="articleTitle">Fade</h3>
+    <a href="" title="Button fade blue/green" class="button btnFade btnBlueGreen">Fade</a>
+    <a href="" title="Button fade lightblue" class="button btnFade btnLightBlue">Fade</a>
+    <a href="" title="Button fade orange" class="button btnFade btnOrange">Fade</a>
+    <a href="" title="Button fade purple" class="button btnFade btnPurple">Fade</a>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="container">
+    <h3 class="articleTitle">3D</h3>
+    <a href="" title="Button push blue/green" class="button btnPush btnBlueGreen">Push</a>
+    <a href="" title="Button push lightblue" class="button btnPush btnLightBlue">Push</a>
+    <a href="" title="Button push orange" class="button btnPush btnOrange">Push</a>
+    <a href="" title="Button push purple" class="button btnPush btnPurple">Push</a>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="container">
+    <h3 class="articleTitle">Border</h3>
+    <a href="" title="Button border blue/green" class="button btnBorder btnBlueGreen">Border</a>
+    <a href="" title="Button border lightblue" class="button btnBorder btnLightBlue">Border</a>
+    <a href="" title="Button border orange" class="button btnBorder btnOrange">Border</a>
+    <a href="" title="Button border purple" class="button btnBorder btnPurple">Border</a>
+    <div class="clear"></div>
+  </div>
+  
+   <div class="container">
+    <h3 class="articleTitle">Float</h3>
+    <a href="" title="Button border blue/green" class="button btnFloat btnBlueGreen">Float</a>
+    <a href="" title="Button border lightblue" class="button btnFloat btnLightBlue">Float</a>
+    <a href="" title="Button border orange" class="button btnFloat btnOrange">Float</a>
+    <a href="" title="Button border purple" class="button btnFloat btnPurple">Float</a>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="container">
+    <h3 class="articleTitle">Slide</h3>
+    <a href="" title="Button slide blue/green" class="button btnSlide btnBlueGreen">
+      <span class="top" data-content="Slide">Slide</span>
+      <span class="bottom" data-content="Slide">Me</span>
+    </a>
+    <a href="" title="Button slide lightblue" class="button btnSlide btnLightBlue">
+      <span class="top" data-content="Slide">Slide</span>
+      <span class="bottom" data-content="Slide">Me</span>
+    </a>
+    <a href="" title="Button slide orange" class="button btnSlide btnOrange">
+      <span class="top" data-content="Slide">Slide</span>
+      <span class="bottom" data-content="Slide">Me</span>
+    </a>
+    <a href="" title="Button slide purple" class="button btnSlide btnPurple">
+      <span class="top" data-content="Slide">Slide</span>
+      <span class="bottom" data-content="Slide">Me</span>
+    </a>
+    <div class="clear"></div>
+  </div>
+
+</body>
+</html>
