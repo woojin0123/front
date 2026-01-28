@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마음 저장소 - 목록</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+         @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+        body {
+            background: linear-gradient(180deg, #151531 0%, #000 100%);
+            color: #FFF;
+            font-family: "Bookk Myungjo", serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .header h3 {
+            text-shadow: 0px 0px 3px #e7f9ff;
+            font-weight: normal;
+            margin-top: 50px;
+        }
+        .back-btn {
+            color: #ffffff;
+            text-shadow: 0px 0px 3px #e7f9ff;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+        .list-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 0.5px solid rgba(255, 251, 228, 0.2);
+            position: relative;
+        }
+        .item.praise { 
+            border: 0.5px solid rgba(174, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(174, 255, 255, 0.2); 
+        }
+        .item.worry { 
+            border: 0.5px solid rgba(255, 103, 35, 0.3);
+            box-shadow: 0 0 10px rgba(255, 103, 35, 0.2); 
+        }
+        
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+        .item-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <header class="header">
+            <a href="index.html" class="back-btn">◀</a>
+            <h3>칭찬저장소</h3>
+            <div style="width: 24px;"></div> </header>
+
+        <div id="mind-list">
+            </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function renderList() {
+                const savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
+                const $container = $('#mind-list');
+                $container.empty();
+
+                if (savedList.length === 0) {
+                    $container.append('<p style="text-align:center; margin-top:100px; opacity:0.5;">기록된 마음이 없습니다.</p>');
+                    return;
+                }
+
+                savedList.forEach((item, index) => {
+                    const isPraise = item.type === 'praise';
+                    const itemHtml = `
+                        <div class="item ${isPraise ? 'praise' : 'worry'}">
+                            <div class="item-info">
+                                <span>${item.date} ${item.time}</span>
+                            </div>
+                            <div class="item-text">${item.text}</div>
+                            <div style="text-align: right; margin-top: 10px;">
+                                <button class="delete-btn" onclick="deleteItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
+                    `;
+                    $container.append(itemHtml);
+                });
+            }
+
+            // 삭제 기능 추가
+            window.deleteItem = function(index) {
+                if(confirm("이 마음을 정말 삭제할까요?")) {
+                    let savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
+                    savedList.splice(index, 1);
+                    localStorage.setItem('mindStorage', JSON.stringify(savedList));
+                    renderList();
+                }
+            }
+
+            renderList();
+        });
+    </script>
+</body>
+</html>
