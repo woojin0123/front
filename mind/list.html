@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마음 저장소 - 목록</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
     <style>
-         @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+        @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background: linear-gradient(180deg, #151531 0%, #000 100%);
@@ -15,45 +25,99 @@
             margin: 0;
             min-height: 100vh;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
-        .header {
+
+
+
+        .logo {
             display: flex;
             justify-content: space-between;
+            max-width: 500px;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
         }
-        .header h3 {
-            text-shadow: 0px 0px 3px #e7f9ff;
-            font-weight: normal;
-            margin-top: 50px;
+
+        .logo a {
+            position: absolute;
+            top: 10px;
+            right: 1%;
+            left: auto;
+            color: #ffffff;
+            text-decoration: none;
         }
+
+
+        .logo>img {
+            max-width: 60%;
+            height: auto;
+            padding-top: 40px;
+            transform: scale(0.8);
+        }
+
         .back-btn {
             color: #ffffff;
             text-shadow: 0px 0px 3px #e7f9ff;
             font-size: 1.3rem;
             text-decoration: none;
+            margin-top: 10px;
         }
+
         .list-container {
             max-width: 500px;
+            width: 100%;
             margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
+
+        #mind-list {
+            flex: 1;
+        }
+
         .item {
+            height: auto;
+            min-height: 100px;
+            display: block;
+            overflow: visible;
             background: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 16px;
             margin-bottom: 20px;
             border: 0.5px solid rgba(255, 251, 228, 0.2);
-            position: relative;
+            box-shadow: 0px 0px 8px rgba(247, 224, 109, 0.3);
         }
-        .item.praise { 
+
+        .item.diary {
+            min-height: 80px;
+        }
+
+        .item.praise,
+        .item.worry {
+            min-height: 0;
+        }
+
+        .item.praise .item-text,
+        .item.worry .item-text {
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+
+        .item.praise {
             border: 0.5px solid rgba(174, 255, 255, 0.3);
-            box-shadow: 0 0 10px rgba(174, 255, 255, 0.2); 
+            box-shadow: 0 0 10px rgba(174, 255, 255, 0.2);
         }
-        .item.worry { 
+
+        .item.worry {
             border: 0.5px solid rgba(255, 103, 35, 0.3);
-            box-shadow: 0 0 10px rgba(255, 103, 35, 0.2); 
+            box-shadow: 0 0 10px rgba(255, 103, 35, 0.2);
         }
-        
+
         .item-info {
             display: flex;
             justify-content: space-between;
@@ -61,71 +125,258 @@
             opacity: 0.6;
             margin-bottom: 10px;
         }
+
         .item-text {
+            white-space: pre-wrap;
+            word-wrap: break-word;
             font-size: 0.9rem;
             line-height: 1.6;
+            margin-top: 10px;
         }
+
         .delete-btn {
             background: none;
             border: none;
             color: #ff4d4d;
             cursor: pointer;
             font-size: 0.7rem;
+            padding: 0;
+            /* 버튼 내부 여백 제거 */
+            margin-right: -5px;
+            /* 필요하다면 마이너스 마진으로 더 바짝 붙임 */
+            transition: 0.2s;
+        }
+
+        .item div[style*="text-align: right"] {
+            margin-top: 30px !important;
+            /* 위쪽 간격 살짝 줄임 */
+            line-height: 1;
+            /* 높이 최소화 */
+        }
+
+        .delete-btn:hover {
+            transform: scale(1.1);
+            color: #ff8080;
+        }
+
+        footer p {
+            text-align: center;
+            padding: 50px;
+            font-size: 0.6rem;
+            font-weight: 100;
+            color: rgba(255, 255, 255, 0.6);
+            padding-top: 100px;
+        }
+
+        .calendar-btn {
+            position: absolute;
+            left: 1%;
+            top: 10px;
+            cursor: pointer;
+            z-index: 100;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-btn i {
+            font-size: 1.4rem;
+            color: #e0e5ff;
+            text-shadow: 0px 0px 3px #F7E06D;
+        }
+
+        .calendar-btn input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .date-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 1rem;
+
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #f3f3f3;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(247, 224, 109, 0.2);
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .date-group {
+            margin-bottom: 50px;
+        }
+
+        .arrow-btn {
+            cursor: pointer;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            transition: 0.3s;
+            margin-top: 4px;
+        }
+
+        .arrow-btn:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .date-group {
+            animation: fadeIn 0.4s ease-in-out;
+            /* 화면 바뀔 때 부드럽게 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .flatpickr-day.selected,
+        .flatpickr-day.selected:hover {
+            background: #F7E06D !important;
+            /* 선택 날짜 금색 */
+            border-color: #F7E06D !important;
+            color: #000 !important;
+        }
+
+        .flatpickr-calendar {
+            box-shadow: 0 0 15px rgba(247, 224, 109, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            font-family: "Bookk Myungjo", serif;
         }
     </style>
 </head>
+
 <body>
     <div class="list-container">
-        <header class="header">
-            <a href="index.html" class="back-btn">◀</a>
-            <h3>칭찬저장소</h3>
-            <div style="width: 24px;"></div> </header>
+        <header class="logo">
+            <a href="index.html"><img src="img/Group 40.svg" alt="연필"></a>
+            <img src="img/logo_text.svg" alt="로고">
+
+            <div class="calendar-btn">
+                <i class="fa-regular fa-calendar"></i>
+                <input type="date" id="date-picker">
+            </div>
+
+            <div style="width: 24px;"></div>
+        </header>
 
         <div id="mind-list">
-            </div>
+        </div>
+        <footer>
+            <p>기억하고 싶은 오늘을 담다, 마음저장소</p>
+        </footer>
     </div>
 
+
     <script>
-        $(document).ready(function() {
-            function renderList() {
-                const savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
+        $(document).ready(function () {
+            // 1. 저장된 데이터 가져오기 함수
+            function getSavedData() {
+                return JSON.parse(localStorage.getItem('mindStorage')) || [];
+            }
+
+            // 2. 화면 그리기 함수 (날짜별 한 장씩 보여주기)
+            function renderList(targetDate) {
+                const savedList = getSavedData();
                 const $container = $('#mind-list');
                 $container.empty();
 
-                if (savedList.length === 0) {
-                    $container.append('<p style="text-align:center; margin-top:100px; opacity:0.5;">기록된 마음이 없습니다.</p>');
-                    return;
-                }
+                // 선택한 날짜 데이터만 골라내기
+                const dayData = savedList.filter(item => item.date === targetDate);
 
-                savedList.forEach((item, index) => {
-                    const isPraise = item.type === 'praise';
-                    const itemHtml = `
-                        <div class="item ${isPraise ? 'praise' : 'worry'}">
-                            <div class="item-info">
-                                <span>${item.date} ${item.time}</span>
-                            </div>
-                            <div class="item-text">${item.text}</div>
-                            <div style="text-align: right; margin-top: 10px;">
-                                <button class="delete-btn" onclick="deleteItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
+                // 상단 날짜와 화살표 UI 생성
+                let groupHtml = `
+            <div class="date-group">
+                <h2 class="date-title">
+                    <i class="fa-solid fa-chevron-left arrow-btn" onclick="navArrow('${targetDate}', -1)"></i>
+                    ${targetDate}
+                    <i class="fa-solid fa-chevron-right arrow-btn" onclick="navArrow('${targetDate}', 1)"></i>
+                </h2>`;
+
+                if (dayData.length === 0) {
+                    groupHtml += `<p style="text-align:center; margin-top:150px; opacity:0.3;">기록된 마음이 없습니다.</p>`;
+                } else {
+                    // 정렬: 일기(1) > 칭찬(2) > 고민(3)
+                    const typeOrder = { 'diary': 1, 'praise': 2, 'worry': 3 };
+                    dayData.sort((a, b) => typeOrder[a.type] - typeOrder[b.type]);
+
+                    dayData.forEach((item) => {
+                        let typeLabel = item.type === 'praise' ? "오늘의 잘한 일" : (item.type === 'worry' ? "오늘의 고민" : "오늘의 일기");
+                        groupHtml += `
+                    <div class="item ${item.type}">
+                        <div class="item-info"><span>${typeLabel}</span></div>
+                        <div class="item-text">${item.text}</div>
+                        <div style="text-align: right; margin-top: 10px;">
+                            <button class="delete-btn" onclick="deleteItemByRecordId(${item.id}, '${targetDate}')">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
                         </div>
-                    `;
-                    $container.append(itemHtml);
-                });
-            }
-
-            // 삭제 기능 추가
-            window.deleteItem = function(index) {
-                if(confirm("이 마음을 정말 삭제할까요?")) {
-                    let savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
-                    savedList.splice(index, 1);
-                    localStorage.setItem('mindStorage', JSON.stringify(savedList));
-                    renderList();
+                    </div>`;
+                    });
                 }
+                $container.append(groupHtml + `</div>`);
             }
 
-            renderList();
+            // 3. [핵심] 커스텀 달력(Flatpickr) 설정
+            // 기본 input 대신 이 녀석이 달력을 관리합니다.
+            const picker = flatpickr("#date-picker", {
+                locale: "ko",              // 달력을 한국어로 표시
+                dateFormat: "Y. n. j.",    // 날짜 형식을 "2026. 1. 29."로 고정
+                disableMobile: "true",     // 모바일에서도 우리가 만든 예쁜 디자인 유지
+                onChange: function (selectedDates, dateStr) {
+                    // 달력에서 날짜를 클릭하면 해당 날짜로 화면을 새로 그립니다.
+                    renderList(dateStr);
+                }
+            });
+
+            // 달력 아이콘 클릭 시 달력 창 열기
+            $('.calendar-btn').on('click', function () {
+                picker.open();
+            });
+
+            // 화살표 클릭 시 날짜 계산 로직
+            window.navArrow = function (currentDateStr, direction) {
+                const date = new Date(currentDateStr);
+                date.setDate(date.getDate() + direction);
+                const newDateStr = date.toLocaleDateString();
+                renderList(newDateStr);
+                picker.setDate(newDateStr); // 달력의 내부 날짜도 같이 업데이트
+            };
+
+            // 삭제 기능
+            window.deleteItemByRecordId = function (recordId, currentVisibleDate) {
+                if (confirm("이 기록을 삭제할까요?\n삭제하면 다시 되돌릴 수 없습니다.")) {
+                    let savedList = getSavedData().filter(item => item.id !== recordId);
+                    localStorage.setItem('mindStorage', JSON.stringify(savedList));
+                    renderList(currentVisibleDate);
+                }
+            };
+
+            // 처음 페이지 열었을 때 오늘 날짜 보여주기
+            const today = new Date().toLocaleDateString();
+            renderList(today);
         });
     </script>
 </body>
+
 </html>

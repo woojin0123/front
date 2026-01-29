@@ -14,6 +14,11 @@
             box-sizing: border-box;
         }
 
+        
+html {
+    scroll-behavior: smooth;
+}
+
         html,
         body {
             min-height: 100vh;
@@ -62,27 +67,37 @@
             font-family: "Bookk Myungjo";
         }
 
+        main {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo {
             display: flex;
+            justify-content: space-between;
+            max-width: 500px;
             flex-direction: column;
             align-items: center;
             width: 100%;
             position: relative;
+            margin: 0 auto;
         }
 
         .logo a {
             position: absolute;
-            top: 55px;
-            left: 5%;
-            right: auto;
+            top: 30px;
+            right: 4%;
+            left: auto;
             color: #ffffff;
-            text-shadow: 0px 0px 3px #e7f9ff;
-            font-size: 1.5rem;
             text-decoration: none;
-            z-index: 10;
         }
 
-        .logo img {
+
+        .logo>img {
             max-width: 60%;
             height: auto;
             padding-top: 60px;
@@ -93,20 +108,38 @@
             max-width: 500px;
             margin: 0 auto;
             padding: 0 20px;
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         .box1 {
             width: 100%;
             text-align: center;
             margin-top: 20px;
-            margin-bottom: 70px;
+            margin-bottom: 50px;
         }
 
         .box {
             display: block;
             margin: 0px auto;
             margin-top: 20px;
+            width: 100%;
+            max-width: 100%;
+            height: 4vh;
+            min-height: 80px;
+            border-radius: 16px;
+            border: 0.5px solid #fffbe4c4;
+            box-shadow: 0px 0px 5px #F7E06D;
+            background: transparent;
+            color: #fff;
+            padding: 15px;
+            resize: none;
+            font-family: inherit;
+            font-size: 0.8rem;
+        }
+
+        .box2 {
+            display: block;
+            margin: 0px auto;
             width: 100%;
             max-width: 100%;
             height: 40vh;
@@ -117,12 +150,19 @@
             box-shadow: 0px 0px 5px #F7E06D;
             background: transparent;
             color: #fff;
-            padding: 10px;
+            padding: 15px;
             resize: none;
             font-family: inherit;
             font-size: 0.8rem;
         }
 
+        .box2:focus {
+            outline: none;
+            border: 1px solid #F7E06D;
+            box-shadow: 0px 0px 10px #F7E06D;
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
         .box:focus {
             outline: none;
             border: 1px solid #F7E06D;
@@ -145,9 +185,9 @@
 
         .btn1,
         .btn2 {
-            width: 96px;
-            height: 29px;
-            font-size: 0.6rem;
+            width: 150px;
+            height: 35px;
+            font-size: 0.65rem;
             cursor: pointer;
             color: #fff;
             transition: 0.2s;
@@ -160,6 +200,9 @@
             border: 0.5px solid #AEFFFF;
             border-radius: 22px;
             box-shadow: 0px 0px 6px #AEFFFF;
+            display: block;
+            margin: 0px auto;
+            margin-top: 70px;
         }
 
         .btn2 {
@@ -180,8 +223,9 @@
 
         footer p {
             text-align: center;
-            padding: 60px;
-            font-size: 0.5rem;
+            padding: 50px;
+            padding-top: 100px;
+            font-size: 0.6rem;
             font-weight: 100;
             color: rgba(255, 255, 255, 0.6);
         }
@@ -191,82 +235,82 @@
 <body>
     <main>
         <header class="logo">
-            <a href="list.html"><i class="fa-solid fa-cloud"></i></a>
-            <img src="img/Frame 9.png" alt="로고">
+            <a href="list.html"><img src="img/Group 35.svg" alt="디스크"></a>
+            <img src="img/Frame 9.svg" alt="로고">
+            <div style="width: 24px;"></div>
         </header>
         <div class="layout">
             <div class="box1">
-                <p>오늘 당신이 스스로에게 주고 싶은 칭찬은 무엇인가요?</p>
-                <textarea class="box" placeholder="여기에 마음을 적어주세요."></textarea>
-                <div class="box1_save">
+                <p>오늘 어떤 하루를 보냈나요?</p>
+                <textarea class="box2" placeholder="오늘 하루를 담아보세요." id="diary-text"></textarea>
+                <!-- <div class="box1_save">
                     <img class="icon" src="img/bottle.svg" alt="물병">
                     <input class="btn1" type="submit" value="소중히 보관하기">
-                </div>
+                </div> -->
+            </div>
+            <div class="box1">
+                <p>오늘 당신이 스스로에게 주고 싶은 칭찬은 무엇인가요?</p>
+                <textarea class="box" placeholder="오늘의 잘한 일을 담아보세요." id="praise-text"></textarea>
+                <!-- <div class="box1_save">
+                    <img class="icon" src="img/bottle.svg" alt="물병">
+                    <input class="btn1" type="submit" value="소중히 보관하기">
+                </div> -->
             </div>
             <div class="box1">
                 <p>오늘 이곳에 두고 갈 고민이 있나요?</p>
-                <textarea class="box" placeholder="여기에 마음을 적어주세요."></textarea>
-                <div class="box1_save">
+                <textarea class="box" placeholder="여기에 고민을 담아보세요." id="worry-text"></textarea>
+                <!-- <div class="box1_save">
                     <img class="icon" src="img/fire.svg" alt="불꽃">
                     <input class="btn2" type="submit" value="미련없이 태우기">
-                </div>
+                </div> -->
             </div>
+            <input class="btn1" type="submit" value="마음을 소중히 기억하기">
         </div>
         <footer>
-            <p>기억하고 싶은 오늘을 담다, 마음 저장소</p>
+            <p>기억하고 싶은 오늘을 담다, 마음저장소</p>
         </footer>
     </main>
     <script>
-        $(document).ready(function () {
-    // --- 1. 외부 클릭 시 키보드 내리기 ---
-    $(document).on('click', function (e) {
-        if (!$(e.target).is('textarea')) {
-            $('textarea').blur();
-        }
-    });
+       $(document).ready(function () {
+    $('.btn1').click(function (e) {
+        e.preventDefault();
 
-    // --- 2. 데이터 저장 공통 함수 ---
-    function saveMind(type, content) {
-        if (!content.trim()) {
+        // 1. 데이터 가져오기 (각 textarea에 맞게 클래스/순서 확인)
+        const diaryStr = $('.box2').val(); // 첫 번째 큰 박스
+        const praiseStr = $('.box').eq(0).val(); // 두 번째 박스
+        const worryStr = $('.box').eq(1).val(); // 세 번째 박스
+
+        if (!diaryStr && !praiseStr && !worryStr) {
             alert("내용을 입력해주세요.");
             return;
         }
 
-        // 저장할 객체 생성
-        const mindData = {
-            id: Date.now(),
-            type: type, // 'praise' 또는 'worry'
-            text: content,
-            date: new Date().toLocaleDateString(), 
-            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        };
-
-        // 로컬스토리지에서 기존 목록 가져오기
         let savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
-        
-        // 새 데이터를 맨 앞에 추가
-        savedList.unshift(mindData);
-        
-        // 다시 로컬스토리지에 저장
+        const now = new Date();
+        const dateStr = now.toLocaleDateString();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        // 2. 함수화하여 중복 방지
+        function addData(type, text) {
+            if (text.trim()) {
+                savedList.unshift({
+                    id: Date.now() + Math.random(), // 고유 ID 생성
+                    type: type,
+                    text: text,
+                    date: dateStr,
+                    time: timeStr
+                });
+            }
+        }
+
+        addData('diary', diaryStr);
+        addData('praise', praiseStr);
+        addData('worry', worryStr);
+
+        // 3. 저장 및 초기화
         localStorage.setItem('mindStorage', JSON.stringify(savedList));
-
-        // 완료 알림 및 초기화
-        alert(type === 'praise' ? "칭찬이 소중히 보관되었어요." : "고민이 미련없이 타올랐어요.");
-    }
-
-    // --- 3. 버튼 클릭 이벤트 연결 ---
-    $('.btn1').click(function(e) {
-        e.preventDefault();
-        const $textarea = $(this).closest('.box1').find('textarea');
-        saveMind('praise', $textarea.val());
-        $textarea.val(''); // 입력창 비우기
-    });
-
-    $('.btn2').click(function(e) {
-        e.preventDefault();
-        const $textarea = $(this).closest('.box1').find('textarea');
-        saveMind('worry', $textarea.val());
-        $textarea.val(''); // 입력창 비우기
+        alert("오늘의 마음이 모두 저장되었습니다.");
+        $('textarea').val(''); 
     });
 });
     </script>
