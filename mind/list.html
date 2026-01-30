@@ -47,7 +47,7 @@
             top: 10px;
             right: 1%;
             left: auto;
-            color: #ffffff;
+            color: #880000;
             text-decoration: none;
         }
 
@@ -274,7 +274,7 @@
 
             <div class="calendar-btn">
                 <i class="fa-regular fa-calendar"></i>
-                <input type="date" id="date-picker">
+                <input type="date" id="date-picker" readonly onfocus="this.blur()">
             </div>
 
             <div style="width: 24px;"></div>
@@ -340,13 +340,17 @@
             // 3. [핵심] 커스텀 달력(Flatpickr) 설정
             // 기본 input 대신 이 녀석이 달력을 관리합니다.
             const picker = flatpickr("#date-picker", {
-                locale: "ko",              // 달력을 한국어로 표시
-                dateFormat: "Y. n. j.",    // 날짜 형식을 "2026. 1. 29."로 고정
-                disableMobile: "true",     // 모바일에서도 우리가 만든 예쁜 디자인 유지
-                onChange: function (selectedDates, dateStr) {
-                    // 달력에서 날짜를 클릭하면 해당 날짜로 화면을 새로 그립니다.
-                    renderList(dateStr);
-                }
+                locale: "ko",
+    dateFormat: "Y. n. j.",
+    disableMobile: true, // 모바일 기본 UI 차단
+    clickOpens: true,    // 클릭 시 달력 열기
+    // 추가 설정
+    onOpen: function() {
+        document.activeElement.blur(); // 열릴 때 포커스 강제 해제 (키보드 방지)
+    },
+    onChange: function(selectedDates, dateStr) {
+        renderList(dateStr);
+    }
             });
 
             // 달력 아이콘 클릭 시 달력 창 열기
@@ -375,6 +379,8 @@
             // 처음 페이지 열었을 때 오늘 날짜 보여주기
             const today = new Date().toLocaleDateString();
             renderList(today);
+
+
         });
     </script>
 </body>

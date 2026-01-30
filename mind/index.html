@@ -264,21 +264,21 @@ html {
                     <input class="btn2" type="submit" value="미련없이 태우기">
                 </div> -->
             </div>
-            <input class="btn1" type="submit" value="마음을 소중히 기억하기">
+            <input class="btn1" type="button" value="마음을 소중히 기억하기">
         </div>
         <footer>
             <p>기억하고 싶은 오늘을 담다, 마음저장소</p>
         </footer>
     </main>
     <script>
-       $(document).ready(function () {
+$(document).ready(function () {
     $('.btn1').click(function (e) {
-        e.preventDefault();
+        e.preventDefault(); // 혹시 모를 새로고침 방지
 
-        // 1. 데이터 가져오기 (각 textarea에 맞게 클래스/순서 확인)
-        const diaryStr = $('.box2').val(); // 첫 번째 큰 박스
-        const praiseStr = $('.box').eq(0).val(); // 두 번째 박스
-        const worryStr = $('.box').eq(1).val(); // 세 번째 박스
+        // 1. 데이터 가져오기
+        const diaryStr = $('#diary-text').val();  // ID로 가져오는 게 가장 정확합니다
+        const praiseStr = $('#praise-text').val();
+        const worryStr = $('#worry-text').val();
 
         if (!diaryStr && !praiseStr && !worryStr) {
             alert("내용을 입력해주세요.");
@@ -290,11 +290,11 @@ html {
         const dateStr = now.toLocaleDateString();
         const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        // 2. 함수화하여 중복 방지
+        // 2. 데이터 추가 함수
         function addData(type, text) {
-            if (text.trim()) {
-                savedList.unshift({
-                    id: Date.now() + Math.random(), // 고유 ID 생성
+            if (text && text.trim()) {
+                savedList.push({ // unshift 대신 push를 써서 저장 순서 유지
+                    id: Date.now() + Math.random(),
                     type: type,
                     text: text,
                     date: dateStr,
@@ -307,10 +307,13 @@ html {
         addData('praise', praiseStr);
         addData('worry', worryStr);
 
-        // 3. 저장 및 초기화
+        // 3. 저장 및 페이지 이동
         localStorage.setItem('mindStorage', JSON.stringify(savedList));
-        alert("오늘의 마음이 모두 저장되었습니다.");
-        $('textarea').val(''); 
+        
+        alert("오늘의 마음이 저장되었습니다.");
+        
+        // [핵심] 저장 후 리스트 페이지로 이동
+        window.location.assign('list.html');
     });
 });
     </script>
