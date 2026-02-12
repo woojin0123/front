@@ -44,7 +44,7 @@ const BoxWrapper = styled.div`
 `;
 
 const TextAreaBase = styled.textarea`
-  display: block;
+display: block;
   margin: 0 auto;
   width: 100%;
   background: transparent;
@@ -54,20 +54,52 @@ const TextAreaBase = styled.textarea`
   font-family: inherit;
   font-size: 1rem;
   border-radius: 16px;
-  border: 0.5px solid rgba(255, 251, 228, 0.2);
-  box-shadow: 0px 0px 8px rgba(247, 224, 109, 0.3);
   outline: none;
   transition: all 0.3s ease;
 
   &:focus {
-    border: 1px solid rgba(255, 251, 228, 0.5);
-    box-shadow: 0px 0px 10px rgba(247, 224, 109, 0.6);
     background: rgba(255, 255, 255, 0.05);
   }
 `;
 
-const DiaryBox = styled(TextAreaBase)` height: 35vh; min-height: 200px; `;
-const SmallBox = styled(TextAreaBase)` height: 80px; `;
+const DiaryBox = styled(TextAreaBase)` 
+height: 35vh;
+  min-height: 200px;
+  border: 0.5px solid rgba(255, 251, 228, 0.2);
+  box-shadow: 0px 0px 8px rgba(247, 224, 109, 0.3);
+
+  &:focus {
+    border: 1px solid rgba(255, 251, 228, 0.5);
+    box-shadow: 0px 0px 10px rgba(247, 224, 109, 0.6);
+  }
+`;
+
+const PraiseBox = styled(TextAreaBase)`
+  height: 80px;
+  border: 0.5px solid rgba(174, 255, 255, 0.3);
+  box-shadow: 0px 0px 8px rgba(174, 255, 255, 0.2);
+
+  &:focus {
+    border: 1px solid rgba(174, 255, 255, 0.6);
+    box-shadow: 0px 0px 12px rgba(174, 255, 255, 0.4);
+  }
+`;
+
+// 4. 오늘의 고민 (WorryBox) - 오렌지/노을색 계열
+const WorryBox = styled(TextAreaBase)`
+  height: 80px;
+  border: 0.5px solid rgba(255, 103, 35, 0.3);
+  box-shadow: 0px 0px 8px rgba(255, 103, 35, 0.2);
+
+  &:focus {
+    border: 1px solid rgba(255, 103, 35, 0.6);
+    box-shadow: 0px 0px 12px rgba(255, 103, 35, 0.4);
+  }
+`;
+
+const SmallBox = styled(TextAreaBase)`
+ height: 80px; 
+ `;
 
 const SaveButton = styled.input`
   width: 180px;
@@ -101,42 +133,62 @@ const InputPage = () => {
   const [worry, setWorry] = useState('');
   
   // 모달 상태 추가
-  const [showModal, setShowModal] = useState(false);
 
-  const handleSave = () => {
-    if (!diary.trim() && !praise.trim() && !worry.trim()) {
-      alert("오늘의 마음을 한 줄이라도 적어주세요.");
-      return;
+const handleSave = () => {
+  // 1. 빈칸 체크 (커스텀 모달 활용)
+  if (!diary.trim() && !praise.trim() && !worry.trim()) {
+    setModalConfig({
+      show: true,
+      message: "오늘의 마음을 기록해 주세요.",
+      onConfirm: () => setModalConfig(prev => ({ ...prev, show: false })),
+    });
+    return;
+  }
+
+  // 2. 데이터 준비 (중복 선언 해결)
+  let savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
+  const now = new Date();
+  const dateStr = now.toLocaleDateString();
+  
+  // 24시간 형식 (HH:mm)으로 강제 지정
+  const timeStr = now.getHours().toString().padStart(2, '0') + ':' + 
+                  now.getMinutes().toString().padStart(2, '0');
+  
+  const setTimestamp = Date.now();
+
+  const addData = (type, text, offset) => {
+    if (text?.trim()) {
+      savedList.push({ 
+        id: setTimestamp + offset, 
+        type, 
+        text, 
+        date: dateStr, 
+        time: timeStr // 여기서 24시간 형식이 들어감
+      });
     }
-    
-    let savedList = JSON.parse(localStorage.getItem('mindStorage')) || [];
-    const now = new Date();
-    const dateStr = now.toLocaleDateString();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const setTimestamp = Date.now(); // 같은 세트로 묶기 위한 타임스탬프
-
-    const addData = (type, text, offset) => {
-      if (text?.trim()) {
-        savedList.push({ 
-          id: setTimestamp + offset, // 리스트 정렬을 위해 미세한 오프차이 부여
-          type, 
-          text, 
-          date: dateStr, 
-          time: timeStr 
-        });
-      }
-    };
-
-    addData('diary', diary, 0.1); 
-    addData('praise', praise, 0.2); 
-    addData('worry', worry, 0.3);
-
-    localStorage.setItem('mindStorage', JSON.stringify(savedList));
-    
-    // 알림창 대신 모달 띄우기
-    setShowModal(true);
   };
 
+  addData('diary', diary, 0.1); 
+  addData('praise', praise, 0.2); 
+  addData('worry', worry, 0.3);
+
+  // 4. 로컬스토리지 저장
+  localStorage.setItem('mindStorage', JSON.stringify(savedList));
+  
+  // 5. 저장 완료 모달 띄우기
+  setModalConfig({
+    show: true,
+    message: "오늘의 마음이\n소중하게 저장되었습니다.",
+    onConfirm: () => navigate('/list'),
+  });
+};
+
+
+const [modalConfig, setModalConfig] = useState({
+  show: false,
+  message: "",
+  onConfirm: () => {},
+});
   return (
     <MainContainer>
       <Header>
@@ -150,26 +202,25 @@ const InputPage = () => {
         </BoxWrapper>
         <BoxWrapper>
           <p>오늘 나에게 주고 싶은 칭찬은?</p>
-          <SmallBox placeholder="잘한 일을 담아보세요." value={praise} onChange={(e) => setPraise(e.target.value)} />
+          <PraiseBox placeholder="잘한 일을 담아보세요." value={praise} onChange={(e) => setPraise(e.target.value)} />
         </BoxWrapper>
         <BoxWrapper>
           <p>여기에 두고 갈 고민이 있나요?</p>
-          <SmallBox placeholder="고민을 담아보세요." value={worry} onChange={(e) => setWorry(e.target.value)} />
+          <WorryBox placeholder="고민을 담아보세요." value={worry} onChange={(e) => setWorry(e.target.value)} />
         </BoxWrapper>
         <SaveButton type="button" value="마음을 소중히 기억하기" onClick={handleSave} />
       </Layout>
       <Footer><p>기억하고 싶은 오늘을 담다, 마음저장소</p></Footer>
 
       {/* 저장 완료 커스텀 모달 */}
-      {showModal && (
-        <Modal 
-          message={`오늘의 마음이\n소중하게 보관되었습니다.`} 
-          type="confirm"
-          confirmText="마음 보러가기"
-          onConfirm={() => navigate('/list')} 
-        />
-      )}
-    </MainContainer>
+{modalConfig.show && (
+      <Modal 
+        message={modalConfig.message} 
+        onConfirm={modalConfig.onConfirm}
+        confirmText={modalConfig.message.includes("보관") ? "마음 보러가기" : "확인"}
+      />
+    )}
+  </MainContainer>
   );
 };
 
